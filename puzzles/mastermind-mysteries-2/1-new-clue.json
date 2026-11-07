@@ -1,0 +1,64 @@
+{
+  "id": "ap-291",
+  "title": "New clue",
+  "source": "generated: m2-1-21",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "6"
+    },
+    {
+      "id": "n1",
+      "value": "18"
+    },
+    {
+      "id": "n2",
+      "value": "3"
+    },
+    {
+      "id": "n3",
+      "value": "9"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "scarlet"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "bad-5",
+  "title": "Only solvable if you know rules stop at 12",
+  "nodes": [ { "id": "a", "value": 9 }, { "id": "b", "value": 36 }, { "id": "c", "value": 5 }, { "id": "d" } ],
+  "colors": [ { "id": "red" } ],
+  "arrows": [ { "from": "a", "to": "b", "color": "red" }, { "from": "c", "to": "d", "color": "red" } ]
+}

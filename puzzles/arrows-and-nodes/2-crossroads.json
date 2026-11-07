@@ -1,0 +1,88 @@
+{
+  "id": "ap-212",
+  "title": "Crossroads",
+  "source": "generated: an-2-10807",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "1"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3",
+      "value": "6"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*3"
+    },
+    {
+      "id": "yellow",
+      "op": "+6"
+    },
+    {
+      "id": "purple"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n3",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "yellow"
+    }
+  ]
+}

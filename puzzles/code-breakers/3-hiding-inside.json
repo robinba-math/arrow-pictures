@@ -1,0 +1,92 @@
+{
+  "id": "ap-283",
+  "title": "Hiding inside",
+  "source": "generated: cb-3-807",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "8"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2",
+      "value": "3"
+    },
+    {
+      "id": "n3",
+      "value": "4"
+    },
+    {
+      "id": "n4",
+      "value": "6"
+    },
+    {
+      "id": "n5",
+      "value": "5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple",
+      "op": "/3"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "yellow"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "brown"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "brown"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n5",
+      "to": "n0",
+      "color": "brown"
+    }
+  ]
+}

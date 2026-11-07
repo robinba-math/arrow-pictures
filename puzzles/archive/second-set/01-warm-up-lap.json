@@ -1,0 +1,84 @@
+{
+  "id": "ap-101",
+  "title": "Warm-up lap",
+  "source": "generated: gentle-5705",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5",
+      "value": "16"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "-1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "ap-285",
+  "title": "Triple lock",
+  "source": "generated: cb-5-1251",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1",
+      "value": "-2"
+    },
+    {
+      "id": "n2",
+      "value": "-7"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5",
+      "value": "-13"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7",
+      "value": "-5"
+    },
+    {
+      "id": "n8",
+      "value": "-15"
+    },
+    {
+      "id": "n9"
+    },
+    {
+      "id": "n10",
+      "value": "-20"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "blue"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "yellow",
+        "scarlet"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "blue"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "blue"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "brown"
+    },
+    {
+      "from": "n6",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n6",
+      "to": "n8",
+      "color": "blue"
+    },
+    {
+      "from": "n1",
+      "to": "n9",
+      "color": "purple"
+    },
+    {
+      "from": "n8",
+      "to": "n10",
+      "color": "blue"
+    },
+    {
+      "from": "n9",
+      "to": "n0",
+      "color": "brown"
+    },
+    {
+      "from": "n10",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "brown"
+    }
+  ]
+}

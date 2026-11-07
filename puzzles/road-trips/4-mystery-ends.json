@@ -1,0 +1,75 @@
+{
+  "id": "ap-274",
+  "title": "Where does it start?",
+  "source": "designed by hand: road trips",
+  "ops": {
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "k1",
+      "at": [
+        0,
+        -6
+      ],
+      "value": "11"
+    },
+    {
+      "id": "s",
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "e",
+      "at": [
+        24,
+        0
+      ]
+    },
+    {
+      "id": "k2",
+      "at": [
+        24,
+        -6
+      ],
+      "value": "-21"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "-6"
+    },
+    {
+      "id": "purple",
+      "op": "+1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "k1",
+      "to": "s",
+      "color": "yellow"
+    },
+    {
+      "from": "e",
+      "to": "k2",
+      "color": "purple"
+    }
+  ],
+  "road": {
+    "from": "s",
+    "to": "e",
+    "colors": [
+      "scarlet",
+      "yellow"
+    ]
+  }
+}

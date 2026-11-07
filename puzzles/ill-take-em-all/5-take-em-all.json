@@ -1,0 +1,157 @@
+{
+  "id": "ap-245",
+  "title": "Take 'em all!",
+  "source": "generated: ta-5-2414",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "-7"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8"
+    },
+    {
+      "id": "n9"
+    },
+    {
+      "id": "n10",
+      "value": "8"
+    },
+    {
+      "id": "n11",
+      "value": "10"
+    },
+    {
+      "id": "n12"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "-7"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "yellow",
+        "scarlet"
+      ],
+      "hidden": true
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "brown"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n7",
+      "color": "brown"
+    },
+    {
+      "from": "n6",
+      "to": "n8",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n9",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n10",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n10",
+      "to": "n11",
+      "color": "purple"
+    },
+    {
+      "from": "n7",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n12",
+      "to": "n2",
+      "color": "purple"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "bad-3",
+  "title": "Composites that define each other",
+  "nodes": [ { "id": "a", "value": 1 }, { "id": "b" } ],
+  "colors": [
+    { "id": "red", "op": "+1" },
+    { "id": "gray", "composite": ["red", "plum"] },
+    { "id": "plum", "composite": ["gray", "red"] }
+  ],
+  "arrows": [ { "from": "a", "to": "b", "color": "gray" } ]
+}

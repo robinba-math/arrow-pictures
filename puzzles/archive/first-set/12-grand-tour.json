@@ -1,0 +1,137 @@
+{
+  "id": "ap-012",
+  "title": "Grand tour",
+  "source": "generated: grand-tour-2691",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "4"
+    },
+    {
+      "id": "n1",
+      "value": "2"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3",
+      "value": "12"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5",
+      "value": "24"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8"
+    },
+    {
+      "id": "n9"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "blue"
+    },
+    {
+      "id": "green"
+    },
+    {
+      "id": "gray",
+      "composite": [
+        "green",
+        "scarlet"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "green"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "blue"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "gray"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "gray"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "green"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "green"
+    },
+    {
+      "from": "n6",
+      "to": "n1",
+      "color": "gray"
+    },
+    {
+      "from": "n7",
+      "to": "n5",
+      "color": "gray"
+    },
+    {
+      "from": "n8",
+      "to": "n3",
+      "color": "blue"
+    },
+    {
+      "from": "n6",
+      "to": "n9",
+      "color": "green"
+    },
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "blue"
+    },
+    {
+      "from": "n4",
+      "to": "n8",
+      "color": "blue"
+    },
+    {
+      "from": "n2",
+      "to": "n7",
+      "color": "scarlet"
+    }
+  ]
+}

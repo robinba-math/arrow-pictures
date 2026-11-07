@@ -1,0 +1,51 @@
+{
+  "id": "ap-264",
+  "title": "Doubling road",
+  "source": "generated: rb-4-315",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 1,
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "2"
+    },
+    {
+      "id": "n1",
+      "value": "45"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "+3"
+    },
+    {
+      "id": "purple",
+      "op": "-1"
+    }
+  ],
+  "arrows": [],
+  "road": {
+    "from": "n0",
+    "to": "n1",
+    "colors": [
+      "scarlet",
+      "yellow",
+      "purple"
+    ]
+  }
+}

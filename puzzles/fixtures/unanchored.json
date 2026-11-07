@@ -1,0 +1,10 @@
+{
+  "id": "bad-2",
+  "title": "A group with no given value",
+  "nodes": [ { "id": "a", "value": 1 }, { "id": "b" }, { "id": "c" }, { "id": "d" } ],
+  "colors": [ { "id": "red", "op": "+1" } ],
+  "arrows": [
+    { "from": "a", "to": "b", "color": "red" },
+    { "from": "c", "to": "d", "color": "red" }
+  ]
+}

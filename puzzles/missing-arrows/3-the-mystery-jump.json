@@ -1,0 +1,102 @@
+{
+  "id": "ap-253",
+  "title": "The mystery jump",
+  "source": "generated: ma-3-1458",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2",
+      "value": "13"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "7"
+    },
+    {
+      "id": "n7"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "/2"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple",
+      "op": "+1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n5",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n6",
+      "to": "n3",
+      "color": "purple"
+    },
+    {
+      "from": "n7",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n7",
+      "to": "n6",
+      "color": "scarlet"
+    }
+  ],
+  "draw": {
+    "color": "yellow"
+  }
+}

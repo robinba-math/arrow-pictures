@@ -1,0 +1,97 @@
+{
+  "id": "ap-252",
+  "title": "Jumps of five",
+  "source": "generated: ma-2-2228",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3",
+      "value": "6"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+1"
+    },
+    {
+      "id": "yellow",
+      "op": "-3"
+    },
+    {
+      "id": "purple",
+      "op": "+5"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n6",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n7",
+      "color": "scarlet"
+    }
+  ],
+  "draw": {
+    "color": "purple"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "id": "ap-221",
+  "title": "Dot to dot",
+  "source": "generated: ld-1-3515",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8",
+      "value": "8"
+    },
+    {
+      "id": "n9"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "/2"
+    },
+    {
+      "id": "yellow",
+      "op": "*5"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n6",
+      "color": "yellow"
+    },
+    {
+      "from": "n5",
+      "to": "n7",
+      "color": "yellow"
+    },
+    {
+      "from": "n8",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n8",
+      "to": "n9",
+      "color": "yellow"
+    },
+    {
+      "from": "n6",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n9",
+      "to": "n1",
+      "color": "scarlet"
+    }
+  ]
+}

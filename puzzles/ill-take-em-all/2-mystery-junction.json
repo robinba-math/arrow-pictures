@@ -1,0 +1,92 @@
+{
+  "id": "ap-242",
+  "title": "Mystery junction",
+  "source": "generated: ta-2-166",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4",
+      "value": "5"
+    },
+    {
+      "id": "n5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple",
+      "op": "/3"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "yellow"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "ap-110",
+  "title": "Double trouble",
+  "source": "generated: double-mystery-road-6040",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "4"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8",
+      "value": "15"
+    },
+    {
+      "id": "n9",
+      "value": "17"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple",
+      "op": "+3"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "yellow"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "purple"
+    },
+    {
+      "from": "n6",
+      "to": "n7",
+      "color": "brown"
+    },
+    {
+      "from": "n5",
+      "to": "n8",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n9",
+      "color": "brown"
+    }
+  ]
+}

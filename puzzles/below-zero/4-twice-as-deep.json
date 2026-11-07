@@ -1,0 +1,134 @@
+{
+  "id": "ap-234",
+  "title": "Twice as deep",
+  "tip": "Multiplying or dividing: work it out without the negative sign, then put it back. −3 × 2: 3 × 2 = 6, so −6. Twice as far below zero.",
+  "source": "generated: bz-4-7693",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8"
+    },
+    {
+      "id": "n9"
+    },
+    {
+      "id": "n10",
+      "value": "-7"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "-4"
+    },
+    {
+      "id": "purple",
+      "op": "+1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n6",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n5",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n8",
+      "color": "purple"
+    },
+    {
+      "from": "n8",
+      "to": "n9",
+      "color": "scarlet"
+    },
+    {
+      "from": "n7",
+      "to": "n10",
+      "color": "purple"
+    },
+    {
+      "from": "n9",
+      "to": "n8",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "purple"
+    }
+  ]
+}

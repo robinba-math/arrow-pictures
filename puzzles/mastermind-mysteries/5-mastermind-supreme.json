@@ -1,0 +1,126 @@
+{
+  "id": "ap-205",
+  "title": "Mastermind supreme",
+  "source": "generated: mm-5-21438",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1",
+      "value": "8"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4",
+      "value": "-4"
+    },
+    {
+      "id": "n5",
+      "value": "-10"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7",
+      "value": "-5"
+    },
+    {
+      "id": "n8",
+      "value": "13"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "yellow",
+        "scarlet"
+      ],
+      "hidden": true
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n3",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n6",
+      "to": "n5",
+      "color": "brown"
+    },
+    {
+      "from": "n5",
+      "to": "n7",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n8",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n7",
+      "color": "scarlet"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "ap-251",
+  "title": "Plus one, plus two",
+  "source": "generated: ma-1-7",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "6"
+    },
+    {
+      "id": "n1",
+      "value": "7"
+    },
+    {
+      "id": "n2",
+      "value": "4"
+    },
+    {
+      "id": "n3",
+      "value": "5"
+    },
+    {
+      "id": "n4",
+      "value": "9"
+    },
+    {
+      "id": "n5",
+      "value": "8"
+    },
+    {
+      "id": "n6",
+      "value": "3"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+1"
+    },
+    {
+      "id": "yellow",
+      "op": "+2"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n5",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n6",
+      "to": "n3",
+      "color": "yellow"
+    }
+  ],
+  "draw": {
+    "color": "yellow"
+  }
+}

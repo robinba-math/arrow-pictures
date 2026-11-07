@@ -1,0 +1,46 @@
+{
+  "id": "ap-263",
+  "title": "The long way round",
+  "source": "generated: rb-3-277",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 1,
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "9"
+    },
+    {
+      "id": "n1",
+      "value": "15"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+7"
+    },
+    {
+      "id": "yellow",
+      "op": "-3"
+    }
+  ],
+  "arrows": [],
+  "road": {
+    "from": "n0",
+    "to": "n1",
+    "colors": [
+      "scarlet",
+      "yellow"
+    ]
+  }
+}

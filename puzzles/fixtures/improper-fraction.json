@@ -1,0 +1,8 @@
+{
+  "id": "bad-6",
+  "title": "A combined arrow that hides 11/2",
+  "nodes": [ { "id": "a", "value": 11 }, { "id": "b" } ],
+  "colors": [ { "id": "red", "op": "/2" }, { "id": "blue", "op": "+1/2" }, { "id": "gray", "composite": ["red", "blue"] } ],
+  "ops": { "kDens": [1, 2] },
+  "arrows": [ { "from": "a", "to": "b", "color": "gray" } ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "ap-214",
+  "title": "Frozen junction",
+  "source": "generated: an-4-14740",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "12"
+    },
+    {
+      "id": "n7",
+      "value": "3"
+    },
+    {
+      "id": "n8"
+    },
+    {
+      "id": "n9"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow",
+      "op": "-4"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "purple",
+        "yellow"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "brown"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n5",
+      "to": "n6",
+      "color": "scarlet"
+    },
+    {
+      "from": "n7",
+      "to": "n6",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n7",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n8",
+      "color": "scarlet"
+    },
+    {
+      "from": "n9",
+      "to": "n8",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n6",
+      "color": "brown"
+    }
+  ]
+}

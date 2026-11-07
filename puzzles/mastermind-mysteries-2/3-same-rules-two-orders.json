@@ -1,0 +1,105 @@
+{
+  "id": "ap-293",
+  "title": "Same rules, two orders",
+  "source": "generated: m2-3-733",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "4"
+    },
+    {
+      "id": "n1",
+      "value": "1"
+    },
+    {
+      "id": "n2",
+      "value": "-12"
+    },
+    {
+      "id": "n3",
+      "value": "-19"
+    },
+    {
+      "id": "n4",
+      "value": "-6"
+    },
+    {
+      "id": "n5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "yellow"
+      ]
+    },
+    {
+      "id": "gray",
+      "composite": [
+        "yellow",
+        "scarlet"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "gray"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n4",
+      "color": "brown"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n3",
+      "color": "gray"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "brown"
+    }
+  ]
+}

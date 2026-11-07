@@ -1,0 +1,76 @@
+{
+  "id": "ap-282",
+  "title": "Two-part code",
+  "source": "generated: cb-2-410",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "1"
+    },
+    {
+      "id": "n1",
+      "value": "-2"
+    },
+    {
+      "id": "n2",
+      "value": "-1"
+    },
+    {
+      "id": "n3",
+      "value": "4"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "yellow"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "brown"
+    },
+    {
+      "from": "n2",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "yellow"
+    }
+  ]
+}

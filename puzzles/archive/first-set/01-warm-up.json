@@ -1,0 +1,19 @@
+{
+  "id": "ap-001",
+  "title": "Warm-up",
+  "mode": "find-values",
+  "nodes": [
+    { "id": "a", "value": 2 },
+    { "id": "b" }, { "id": "c" }, { "id": "d" }, { "id": "f" }
+  ],
+  "colors": [
+    { "id": "scarlet", "op": "+3" },
+    { "id": "blue", "op": "*2" }
+  ],
+  "arrows": [
+    { "from": "a", "to": "b", "color": "scarlet" },
+    { "from": "b", "to": "c", "color": "blue" },
+    { "from": "c", "to": "d", "color": "scarlet" },
+    { "from": "f", "to": "a", "color": "scarlet" }
+  ]
+}

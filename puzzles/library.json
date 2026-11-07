@@ -1,0 +1,66 @@
+{
+  "themes": [
+    {
+      "dir": "mastermind-mysteries",
+      "title": "Mastermind Mysteries",
+      "blurb": "Very few dots. Crack the rules."
+    },
+    {
+      "dir": "mastermind-mysteries-2",
+      "title": "Mastermind Mysteries II",
+      "blurb": "More rule cracking, now with brown, gray and white arrows."
+    },
+    {
+      "dir": "arrows-and-nodes",
+      "title": "Arrows and Nodes",
+      "blurb": "Find the rules, then fill the dots."
+    },
+    {
+      "dir": "lots-of-dots",
+      "title": "Lots of Dots",
+      "blurb": "Every rule is shown. Lots of numbers to work out."
+    },
+    {
+      "dir": "below-zero",
+      "title": "Below Zero",
+      "blurb": "Practice with negative numbers, one move at a time."
+    },
+    {
+      "dir": "ill-take-em-all",
+      "title": "I'll Take 'em All!",
+      "blurb": "One of each kind, then everything at once."
+    },
+    {
+      "dir": "missing-arrows",
+      "title": "Missing Arrows",
+      "blurb": "Some arrows are missing. Draw every one."
+    },
+    {
+      "dir": "road-builder",
+      "title": "Road Builder",
+      "blurb": "Build a road of arrows from one number to another."
+    },
+    {
+      "dir": "road-trips",
+      "title": "Road Trips",
+      "blurb": "Fill in, work out, then build the road."
+    },
+    {
+      "dir": "code-breakers",
+      "title": "Code Breakers",
+      "blurb": "Crack the rules. Brown arrows show what they are made of."
+    }
+  ],
+  "archive": [
+    {
+      "dir": "archive/second-set",
+      "title": "Second set",
+      "blurb": "The 14 puzzles from before the themes."
+    },
+    {
+      "dir": "archive/first-set",
+      "title": "First set",
+      "blurb": "The very first 12 puzzles."
+    }
+  ]
+}

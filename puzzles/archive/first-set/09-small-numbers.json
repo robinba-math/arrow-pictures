@@ -1,0 +1,127 @@
+{
+  "id": "ap-009",
+  "title": "Small numbers, long chain",
+  "source": "generated: double-mystery-road-888",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7",
+      "value": "1"
+    },
+    {
+      "id": "n8",
+      "value": "-6"
+    },
+    {
+      "id": "n9",
+      "value": "10"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "blue"
+    },
+    {
+      "id": "green",
+      "op": "-1"
+    },
+    {
+      "id": "gray",
+      "composite": [
+        "scarlet",
+        "blue"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "green"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "blue"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "blue"
+    },
+    {
+      "from": "n4",
+      "to": "n3",
+      "color": "green"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "green"
+    },
+    {
+      "from": "n3",
+      "to": "n6",
+      "color": "gray"
+    },
+    {
+      "from": "n5",
+      "to": "n7",
+      "color": "green"
+    },
+    {
+      "from": "n8",
+      "to": "n5",
+      "color": "gray"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "green"
+    },
+    {
+      "from": "n2",
+      "to": "n9",
+      "color": "green"
+    },
+    {
+      "from": "n6",
+      "to": "n4",
+      "color": "green"
+    }
+  ]
+}

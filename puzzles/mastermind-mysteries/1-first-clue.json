@@ -1,0 +1,64 @@
+{
+  "id": "ap-201",
+  "title": "First clue",
+  "source": "generated: mm-1-18",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "10"
+    },
+    {
+      "id": "n1",
+      "value": "5"
+    },
+    {
+      "id": "n2",
+      "value": "20"
+    },
+    {
+      "id": "n3",
+      "value": "15"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "scarlet"
+    }
+  ]
+}

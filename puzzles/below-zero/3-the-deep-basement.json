@@ -1,0 +1,121 @@
+{
+  "id": "ap-233",
+  "title": "The deep basement",
+  "tip": "Subtracting from a negative goes deeper. You’re on floor −3 and go down 4 more: −3 − 4 = −7.",
+  "source": "generated: bz-3-37882",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8",
+      "value": "5"
+    },
+    {
+      "id": "n9"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "-3"
+    },
+    {
+      "id": "yellow",
+      "op": "+1"
+    },
+    {
+      "id": "purple",
+      "op": "-2"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n5",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n6",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n7",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n8",
+      "to": "n7",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n9",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "yellow"
+    }
+  ]
+}

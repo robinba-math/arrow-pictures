@@ -1,0 +1,7 @@
+{
+  "id": "bad-4",
+  "title": "Contradictory numbers",
+  "nodes": [ { "id": "a", "value": 1 }, { "id": "b", "value": 5 } ],
+  "colors": [ { "id": "red", "op": "+1" } ],
+  "arrows": [ { "from": "a", "to": "b", "color": "red" } ]
+}

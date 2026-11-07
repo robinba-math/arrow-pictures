@@ -1,0 +1,93 @@
+{
+  "id": "ap-203",
+  "title": "Spy school",
+  "source": "generated: mm-3-8073",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "1"
+    },
+    {
+      "id": "n1",
+      "value": "2"
+    },
+    {
+      "id": "n2",
+      "value": "3"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5",
+      "value": "18"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n1",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    }
+  ]
+}

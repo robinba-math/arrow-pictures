@@ -1,0 +1,99 @@
+{
+  "id": "ap-105",
+  "title": "Pieces of pie",
+  "source": "generated: fraction-trail-5700",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7",
+      "value": "10"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+4"
+    },
+    {
+      "id": "yellow",
+      "op": "-3"
+    },
+    {
+      "id": "purple",
+      "op": "/5"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n5",
+      "to": "n6",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n7",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "scarlet"
+    }
+  ]
+}

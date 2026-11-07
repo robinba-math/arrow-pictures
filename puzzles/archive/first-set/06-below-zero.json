@@ -1,0 +1,110 @@
+{
+  "id": "ap-006",
+  "title": "Below zero",
+  "source": "generated: below-zero-550",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8",
+      "value": "-14"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "blue",
+      "op": "-9"
+    },
+    {
+      "id": "green"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "green"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "green"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "blue"
+    },
+    {
+      "from": "n0",
+      "to": "n6",
+      "color": "blue"
+    },
+    {
+      "from": "n2",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n5",
+      "to": "n8",
+      "color": "blue"
+    },
+    {
+      "from": "n7",
+      "to": "n4",
+      "color": "blue"
+    },
+    {
+      "from": "n4",
+      "to": "n1",
+      "color": "green"
+    }
+  ]
+}

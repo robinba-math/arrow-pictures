@@ -1,0 +1,116 @@
+{
+  "id": "ap-103",
+  "title": "Under zero",
+  "source": "generated: below-zero-5685",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4",
+      "value": "-2"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "-6"
+    },
+    {
+      "id": "yellow",
+      "op": "+5"
+    },
+    {
+      "id": "purple"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n1",
+      "color": "purple"
+    },
+    {
+      "from": "n5",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n6",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n7",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n8",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n6",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n7",
+      "to": "n2",
+      "color": "yellow"
+    }
+  ]
+}

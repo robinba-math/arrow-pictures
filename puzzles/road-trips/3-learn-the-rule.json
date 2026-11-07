@@ -1,0 +1,88 @@
+{
+  "id": "ap-273",
+  "title": "Learn the rule",
+  "source": "designed by hand: road trips",
+  "ops": {
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "s",
+      "at": [
+        0,
+        0
+      ],
+      "value": "3"
+    },
+    {
+      "id": "e",
+      "at": [
+        24,
+        0
+      ],
+      "value": "21"
+    },
+    {
+      "id": "p1",
+      "at": [
+        3,
+        -7
+      ],
+      "value": "2"
+    },
+    {
+      "id": "p2",
+      "at": [
+        8,
+        -7
+      ],
+      "value": "6"
+    },
+    {
+      "id": "p3",
+      "at": [
+        16,
+        -7
+      ],
+      "value": "5"
+    },
+    {
+      "id": "p4",
+      "at": [
+        21,
+        -7
+      ],
+      "value": "15"
+    }
+  ],
+  "colors": [
+    {
+      "id": "purple"
+    },
+    {
+      "id": "yellow",
+      "op": "-1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "p1",
+      "to": "p2",
+      "color": "purple"
+    },
+    {
+      "from": "p3",
+      "to": "p4",
+      "color": "purple"
+    }
+  ],
+  "road": {
+    "from": "s",
+    "to": "e",
+    "colors": [
+      "purple",
+      "yellow"
+    ]
+  }
+}

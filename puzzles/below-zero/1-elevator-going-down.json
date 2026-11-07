@@ -1,0 +1,90 @@
+{
+  "id": "ap-231",
+  "title": "Elevator going down",
+  "tip": "Going down past 0? Ride the elevator: get to the lobby (0) first, then keep going. 2 − 5: down 2 to 0, then 3 more, so floor −3.",
+  "source": "generated: bz-1-1541",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2",
+      "value": "6"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "-4"
+    },
+    {
+      "id": "yellow",
+      "op": "-2"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    }
+  ]
+}

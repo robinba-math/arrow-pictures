@@ -1,0 +1,19 @@
+{
+  "id": "ap-002",
+  "title": "Two mystery rules",
+  "mode": "find-rules",
+  "nodes": [
+    { "id": "a", "value": 3 }, { "id": "b", "value": 6 }, { "id": "c", "value": 12 },
+    { "id": "d", "value": 9 }, { "id": "e", "value": 18 }
+  ],
+  "colors": [
+    { "id": "scarlet" },
+    { "id": "blue" }
+  ],
+  "arrows": [
+    { "from": "a", "to": "b", "color": "scarlet" },
+    { "from": "b", "to": "c", "color": "blue" },
+    { "from": "d", "to": "c", "color": "scarlet" },
+    { "from": "d", "to": "e", "color": "blue" }
+  ]
+}

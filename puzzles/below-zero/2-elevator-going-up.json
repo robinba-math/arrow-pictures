@@ -1,0 +1,83 @@
+{
+  "id": "ap-232",
+  "title": "Elevator going up",
+  "tip": "Adding always goes up, even underground. You’re on floor −5 and go up 1: now you’re only 4 floors down, so −5 + 1 = −4 (not −6!).",
+  "source": "generated: bz-2-10342",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "6"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "-7"
+    },
+    {
+      "id": "yellow",
+      "op": "+2"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n6",
+      "to": "n2",
+      "color": "scarlet"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+/* Color tokens and base styles, shared by every page. */
+:root {
+  --paper: #ECEFF4;        /* the desk the worksheet sits on */
+  --board: #FFFFFF;
+  --grid: #D3DAE4;
+  --ink: #17202C;
+  --ink-soft: #5E6879;
+  --rule: #D6DCE5;
+  --key: #F6F7FA;
+  --dot-given: #EDF0F5;
+  --pencil: #3442C4;       /* everything the player writes */
+  --pencil-tint: #E6E8FA;
+  --good: #1D7A4C;
+  --good-tint: #E2F2EA;
+  --bad: #C0322A;
+  --bad-tint: #FBE7E5;
+  --c-scarlet: #DE1A0E; --c-blue: #0A6FB5; --c-green: #05916A;
+  --c-purple: #8E3FB8; --c-orange: #D9731A; --c-yellow: #D9A400; --c-brown: #8A5A2E;
+  --c-gray: #7C858F; --c-white: #FFFFFF;
+
+  --font-display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-num: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1318; --board: #161B22; --grid: #29313C; --ink: #E7EBF1; --ink-soft: #9AA4B4;
+    --rule: #2A313B; --key: #1D232C; --dot-given: #222A35; --pencil: #9AA5FF; --pencil-tint: #262C52;
+    --good: #4CC38A; --good-tint: #16302A; --bad: #FF7468; --bad-tint: #3A1E1C;
+    --c-scarlet: #FF4B3E; --c-blue: #4FA9F0; --c-green: #36C796; --c-purple: #C68BF0; --c-orange: #FF9F4D; --c-yellow: #FFD230; --c-brown: #C48B55; --c-gray: #9AA4AF; --c-white: #F4F6F8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1318; --board: #161B22; --grid: #29313C; --ink: #E7EBF1; --ink-soft: #9AA4B4;
+  --rule: #2A313B; --key: #1D232C; --dot-given: #222A35; --pencil: #9AA5FF; --pencil-tint: #262C52;
+  --good: #4CC38A; --good-tint: #16302A; --bad: #FF7468; --bad-tint: #3A1E1C;
+  --c-scarlet: #FF4B3E; --c-blue: #4FA9F0; --c-green: #36C796; --c-purple: #C68BF0; --c-orange: #FF9F4D; --c-yellow: #FFD230; --c-brown: #C48B55; --c-gray: #9AA4AF; --c-white: #F4F6F8;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 32px;
+}
+button { font: inherit; color: inherit; }
+button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--pencil); outline-offset: 2px; }

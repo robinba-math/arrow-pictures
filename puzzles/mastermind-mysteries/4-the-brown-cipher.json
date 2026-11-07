@@ -1,0 +1,100 @@
+{
+  "id": "ap-204",
+  "title": "The brown cipher",
+  "source": "generated: mm-4-3664",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1",
+      "value": "3"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3",
+      "value": "4"
+    },
+    {
+      "id": "n4",
+      "value": "14"
+    },
+    {
+      "id": "n5",
+      "value": "9"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "purple"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "brown"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "brown"
+    },
+    {
+      "from": "n5",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "purple"
+    }
+  ]
+}

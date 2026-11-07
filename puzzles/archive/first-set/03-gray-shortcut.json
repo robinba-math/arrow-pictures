@@ -1,0 +1,20 @@
+{
+  "id": "ap-003",
+  "title": "The gray shortcut",
+  "mode": "mixed",
+  "nodes": [
+    { "id": "f" }, { "id": "a", "value": 4 }, { "id": "b", "value": 12 },
+    { "id": "c" }, { "id": "e", "value": 28 }
+  ],
+  "colors": [
+    { "id": "scarlet" },
+    { "id": "blue", "op": "-2" },
+    { "id": "gray", "composite": ["scarlet", "blue"] }
+  ],
+  "arrows": [
+    { "from": "f", "to": "a", "color": "gray" },
+    { "from": "a", "to": "b", "color": "scarlet" },
+    { "from": "b", "to": "c", "color": "blue" },
+    { "from": "c", "to": "e", "color": "gray" }
+  ]
+}

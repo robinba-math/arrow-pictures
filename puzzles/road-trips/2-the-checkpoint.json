@@ -1,0 +1,70 @@
+{
+  "id": "ap-272",
+  "title": "The checkpoint",
+  "source": "designed by hand: road trips",
+  "ops": {
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "s",
+      "at": [
+        0,
+        0
+      ],
+      "value": "3"
+    },
+    {
+      "id": "c",
+      "at": [
+        12,
+        2
+      ]
+    },
+    {
+      "id": "k",
+      "at": [
+        12,
+        -4
+      ],
+      "value": "7"
+    },
+    {
+      "id": "e",
+      "at": [
+        24,
+        0
+      ],
+      "value": "37"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+10"
+    },
+    {
+      "id": "yellow",
+      "op": "+2"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "k",
+      "to": "c",
+      "color": "scarlet"
+    }
+  ],
+  "road": {
+    "from": "s",
+    "via": [
+      "c"
+    ],
+    "to": "e",
+    "colors": [
+      "scarlet",
+      "yellow"
+    ]
+  }
+}

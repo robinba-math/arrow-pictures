@@ -1,0 +1,103 @@
+{
+  "id": "ap-108",
+  "title": "Deep freeze",
+  "source": "generated: below-zero-5617",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "5"
+    },
+    {
+      "id": "n7"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "-3"
+    },
+    {
+      "id": "purple"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n6",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n5",
+      "to": "n7",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n6",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n5",
+      "color": "scarlet"
+    }
+  ]
+}

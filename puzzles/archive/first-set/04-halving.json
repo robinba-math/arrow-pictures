@@ -1,0 +1,18 @@
+{
+  "id": "ap-004",
+  "title": "Halving",
+  "mode": "find-values",
+  "nodes": [
+    { "id": "d" }, { "id": "a" }, { "id": "b" }, { "id": "c", "value": "1/4" }
+  ],
+  "colors": [
+    { "id": "scarlet", "op": "/2" },
+    { "id": "blue", "op": "*4" }
+  ],
+  "arrows": [
+    { "from": "d", "to": "a", "color": "scarlet" },
+    { "from": "a", "to": "b", "color": "scarlet" },
+    { "from": "b", "to": "c", "color": "scarlet" },
+    { "from": "c", "to": "a", "color": "blue" }
+  ]
+}

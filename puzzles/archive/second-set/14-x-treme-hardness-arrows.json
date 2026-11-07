@@ -1,0 +1,150 @@
+{
+  "id": "ap-114",
+  "title": "X-treme hardness arrows",
+  "source": "generated: x-treme-6337",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "11"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2",
+      "value": "8"
+    },
+    {
+      "id": "n3",
+      "value": "44"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "38"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8"
+    },
+    {
+      "id": "n9",
+      "value": "2"
+    },
+    {
+      "id": "n10"
+    },
+    {
+      "id": "n11"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "purple",
+        "scarlet"
+      ],
+      "hidden": true
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "brown"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "color": "purple"
+    },
+    {
+      "from": "n5",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n3",
+      "to": "n6",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n7",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n8",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n9",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n10",
+      "color": "yellow"
+    },
+    {
+      "from": "n11",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n11",
+      "color": "purple"
+    },
+    {
+      "from": "n11",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n10",
+      "to": "n7",
+      "color": "yellow"
+    }
+  ]
+}

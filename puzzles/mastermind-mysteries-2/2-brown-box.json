@@ -1,0 +1,85 @@
+{
+  "id": "ap-292",
+  "title": "Brown box",
+  "source": "generated: m2-2-4",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "3"
+    },
+    {
+      "id": "n1",
+      "value": "1"
+    },
+    {
+      "id": "n2",
+      "value": "4"
+    },
+    {
+      "id": "n3",
+      "value": "2"
+    },
+    {
+      "id": "n4",
+      "value": "7"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "yellow",
+        "scarlet"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "brown"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "brown"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "yellow"
+    }
+  ]
+}

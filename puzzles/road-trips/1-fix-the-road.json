@@ -1,0 +1,71 @@
+{
+  "id": "ap-271",
+  "title": "Fix the road",
+  "source": "designed by hand: road trips",
+  "ops": {
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "s",
+      "at": [
+        0,
+        0
+      ],
+      "value": "3"
+    },
+    {
+      "id": "a",
+      "at": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": "b",
+      "at": [
+        19,
+        0
+      ]
+    },
+    {
+      "id": "e",
+      "at": [
+        24,
+        0
+      ],
+      "value": "25"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+10"
+    },
+    {
+      "id": "yellow",
+      "op": "+1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "s",
+      "to": "a",
+      "color": "scarlet"
+    },
+    {
+      "from": "b",
+      "to": "e",
+      "color": "yellow"
+    }
+  ],
+  "road": {
+    "from": "s",
+    "to": "e",
+    "colors": [
+      "scarlet",
+      "yellow"
+    ]
+  }
+}

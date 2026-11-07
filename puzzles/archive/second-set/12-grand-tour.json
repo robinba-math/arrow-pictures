@@ -1,0 +1,145 @@
+{
+  "id": "ap-112",
+  "title": "Grand tour",
+  "source": "generated: grand-tour-6187",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "2"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4",
+      "value": "-1"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "-5"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8"
+    },
+    {
+      "id": "n9",
+      "value": "5"
+    },
+    {
+      "id": "n10"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "purple",
+        "scarlet"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "brown"
+    },
+    {
+      "from": "n3",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n5",
+      "color": "brown"
+    },
+    {
+      "from": "n6",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n7",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n8",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n9",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n9",
+      "to": "n10",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n6",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "brown"
+    },
+    {
+      "from": "n4",
+      "to": "n9",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n7",
+      "color": "purple"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "ap-262",
+  "title": "Two steps forward",
+  "source": "generated: rb-2-54",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 1,
+    "maxAbs": 50,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "3"
+    },
+    {
+      "id": "n1",
+      "value": "21"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "+5"
+    },
+    {
+      "id": "yellow",
+      "op": "-2"
+    }
+  ],
+  "arrows": [],
+  "road": {
+    "from": "n0",
+    "to": "n1",
+    "colors": [
+      "scarlet",
+      "yellow"
+    ]
+  }
+}

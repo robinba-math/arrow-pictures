@@ -1,0 +1,15 @@
+{
+  "id": "warn-1",
+  "title": "Unique, but only by hypothesis",
+  "nodes": [
+    { "id": "a", "value": 1 }, { "id": "b" }, { "id": "c", "value": 5 },
+    { "id": "d", "value": 2 }, { "id": "e" }, { "id": "f", "value": 7 },
+    { "id": "g", "value": 3 }, { "id": "h" }, { "id": "i", "value": 9 }
+  ],
+  "colors": [ { "id": "red" }, { "id": "blue" } ],
+  "arrows": [
+    { "from": "a", "to": "b", "color": "red" }, { "from": "b", "to": "c", "color": "blue" },
+    { "from": "d", "to": "e", "color": "red" }, { "from": "e", "to": "f", "color": "blue" },
+    { "from": "g", "to": "h", "color": "red" }, { "from": "h", "to": "i", "color": "blue" }
+  ]
+}

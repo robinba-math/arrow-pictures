@@ -1,0 +1,101 @@
+{
+  "id": "ap-106",
+  "title": "Three mysteries",
+  "source": "generated: rule-web-5718",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1",
+      "value": "15"
+    },
+    {
+      "id": "n2",
+      "value": "18"
+    },
+    {
+      "id": "n3",
+      "value": "21"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5",
+      "value": "24"
+    },
+    {
+      "id": "n6"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n0",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "purple"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "scarlet"
+    }
+  ]
+}

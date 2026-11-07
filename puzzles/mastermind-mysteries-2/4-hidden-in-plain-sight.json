@@ -1,0 +1,116 @@
+{
+  "id": "ap-294",
+  "title": "Hidden in plain sight",
+  "source": "generated: m2-4-705",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1",
+      "value": "2"
+    },
+    {
+      "id": "n2",
+      "value": "-8"
+    },
+    {
+      "id": "n3",
+      "value": "-4"
+    },
+    {
+      "id": "n4",
+      "value": "-5"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6",
+      "value": "5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "scarlet",
+        "purple"
+      ]
+    },
+    {
+      "id": "gray",
+      "composite": [
+        "purple",
+        "yellow"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "gray"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "gray"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "yellow"
+    },
+    {
+      "from": "n5",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "gray"
+    },
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "brown"
+    }
+  ]
+}

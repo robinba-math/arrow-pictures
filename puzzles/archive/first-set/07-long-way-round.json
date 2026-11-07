@@ -1,0 +1,106 @@
+{
+  "id": "ap-007",
+  "title": "The long way round",
+  "source": "generated: road-and-rules-1638",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2",
+      "value": "2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "blue",
+      "op": "-2"
+    },
+    {
+      "id": "gray",
+      "composite": [
+        "scarlet",
+        "blue"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "blue"
+    },
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "gray"
+    },
+    {
+      "from": "n0",
+      "to": "n2",
+      "color": "blue"
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "color": "gray"
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "color": "gray"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "blue"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n5",
+      "to": "n6",
+      "color": "scarlet"
+    },
+    {
+      "from": "n6",
+      "to": "n7",
+      "color": "blue"
+    }
+  ]
+}

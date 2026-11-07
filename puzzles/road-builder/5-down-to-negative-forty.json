@@ -1,0 +1,51 @@
+{
+  "id": "ap-265",
+  "title": "Down to negative forty",
+  "source": "generated: rb-5-3333",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 1,
+    "maxAbs": 60,
+    "fractions": "none"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "6"
+    },
+    {
+      "id": "n1",
+      "value": "-40"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "-5"
+    },
+    {
+      "id": "purple",
+      "op": "+2"
+    }
+  ],
+  "arrows": [],
+  "road": {
+    "from": "n0",
+    "to": "n1",
+    "colors": [
+      "scarlet",
+      "yellow",
+      "purple"
+    ]
+  }
+}

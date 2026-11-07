@@ -1,0 +1,146 @@
+{
+  "id": "ap-255",
+  "title": "Arrow detective",
+  "source": "generated: ma-5-371",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7",
+      "value": "-12"
+    },
+    {
+      "id": "n8",
+      "value": "-1"
+    },
+    {
+      "id": "n9",
+      "value": "-10"
+    },
+    {
+      "id": "n10"
+    },
+    {
+      "id": "n11"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet"
+    },
+    {
+      "id": "yellow",
+      "op": "+9"
+    },
+    {
+      "id": "purple"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "yellow",
+        "purple"
+      ]
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "brown"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "yellow"
+    },
+    {
+      "from": "n5",
+      "to": "n3",
+      "color": "yellow"
+    },
+    {
+      "from": "n4",
+      "to": "n3",
+      "color": "brown"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "scarlet"
+    },
+    {
+      "from": "n6",
+      "to": "n7",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n8",
+      "color": "purple"
+    },
+    {
+      "from": "n2",
+      "to": "n10",
+      "color": "scarlet"
+    },
+    {
+      "from": "n9",
+      "to": "n11",
+      "color": "brown"
+    },
+    {
+      "from": "n7",
+      "to": "n9",
+      "color": "brown"
+    },
+    {
+      "from": "n7",
+      "to": "n5",
+      "color": "yellow"
+    }
+  ],
+  "draw": {
+    "color": "purple"
+  }
+}

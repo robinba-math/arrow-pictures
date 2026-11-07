@@ -1,0 +1,132 @@
+{
+  "id": "ap-244",
+  "title": "Double trouble downstairs",
+  "tip": "Remember from Below Zero: to multiply a negative, do it without the negative sign, then put it back. Adding moves you up toward zero.",
+  "source": "generated: ta-4-339",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8",
+      "value": "-21"
+    },
+    {
+      "id": "n9"
+    },
+    {
+      "id": "n10"
+    },
+    {
+      "id": "n11"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "*2"
+    },
+    {
+      "id": "yellow",
+      "op": "-5"
+    },
+    {
+      "id": "purple",
+      "op": "+4"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "yellow"
+    },
+    {
+      "from": "n3",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n4",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n2",
+      "to": "n6",
+      "color": "purple"
+    },
+    {
+      "from": "n3",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n7",
+      "to": "n8",
+      "color": "yellow"
+    },
+    {
+      "from": "n7",
+      "to": "n9",
+      "color": "scarlet"
+    },
+    {
+      "from": "n10",
+      "to": "n9",
+      "color": "purple"
+    },
+    {
+      "from": "n11",
+      "to": "n5",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "color": "scarlet"
+    }
+  ]
+}

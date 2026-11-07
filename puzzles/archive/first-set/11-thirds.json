@@ -1,0 +1,117 @@
+{
+  "id": "ap-011",
+  "title": "Thirds",
+  "source": "generated: fraction-trail-1201",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0"
+    },
+    {
+      "id": "n1"
+    },
+    {
+      "id": "n2"
+    },
+    {
+      "id": "n3"
+    },
+    {
+      "id": "n4"
+    },
+    {
+      "id": "n5"
+    },
+    {
+      "id": "n6"
+    },
+    {
+      "id": "n7"
+    },
+    {
+      "id": "n8",
+      "value": "8"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "/3"
+    },
+    {
+      "id": "blue",
+      "op": "*2"
+    },
+    {
+      "id": "green",
+      "op": "-1"
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "blue"
+    },
+    {
+      "from": "n1",
+      "to": "n0",
+      "color": "green"
+    },
+    {
+      "from": "n2",
+      "to": "n1",
+      "color": "green"
+    },
+    {
+      "from": "n3",
+      "to": "n0",
+      "color": "blue"
+    },
+    {
+      "from": "n2",
+      "to": "n4",
+      "color": "blue"
+    },
+    {
+      "from": "n4",
+      "to": "n1",
+      "color": "scarlet"
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "color": "green"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n6",
+      "color": "blue"
+    },
+    {
+      "from": "n1",
+      "to": "n7",
+      "color": "scarlet"
+    },
+    {
+      "from": "n6",
+      "to": "n8",
+      "color": "blue"
+    }
+  ]
+}
