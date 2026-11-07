@@ -4,7 +4,7 @@
   "type": "module",
   "description": "CSMP-style arrow picture puzzles: engine, checker, and solve UI",
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/*.test.js",
     "build": "node scripts/build-web.js",
     "site": "node scripts/build-site.js",
     "serve": "node scripts/serve.js"

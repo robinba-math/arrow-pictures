@@ -36,7 +36,7 @@ The engine has no dependencies and runs unchanged in Node and the browser.
 
 ## Commands
 
-Needs Node 20 or later. No packages to install.
+Needs Node 22 or later. No packages to install.
 
 ```sh
 npm test                                   # run the suite
