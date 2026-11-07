@@ -37,6 +37,24 @@ export function colorStyles(p) {
   return styles;
 }
 
+// Arrowheads. A line's round end must stop where the head is wider than the
+// line, or it pokes out past the point as a little blob. So each head sits
+// a way back along its line (refX, in tenths of the head), and the line is
+// pulled back from the dot (back, in pixels) so the point still lands just
+// short of it. Roads are wider, and the white road's edge widest of all.
+const HEAD = { line: { refX: 6.5, back: 2 }, road: { refX: 2.5, back: 11 } };
+
+// Move the end of a path back toward its last control point.
+function pullBack(d, px) {
+  const nums = d.match(/-?\d+(?:\.\d+)?/g).map(Number);
+  const [cx, cy, ex, ey] = nums.slice(-4);
+  const len = Math.hypot(ex - cx, ey - cy) || 1;
+  const k = Math.min(px, len / 2) / len;
+  const x = Math.round((ex - (ex - cx) * k) * 10) / 10;
+  const y = Math.round((ey - (ey - cy) * k) * 10) / 10;
+  return d.replace(/-?\d+(?:\.\d+)?\s+-?\d+(?:\.\d+)?\s*$/, `${x} ${y}`);
+}
+
 const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[ch]);
 
 // Shrink long numbers to fit the dot.
@@ -55,10 +73,10 @@ export function renderBoard(p, layout, styles, view) {
   const [vx, vy, vw, vh] = layout.viewBox;
   const hues = [...new Set([...styles.values()].map((s) => s.hue))];
   const markers = hues.map((h) => `
-    <marker id="ah-${h}" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto" markerUnits="strokeWidth">
+    <marker id="ah-${h}" viewBox="0 0 10 10" refX="${HEAD.line.refX}" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto" markerUnits="strokeWidth">
       <path d="M0 0.6 L10 5 L0 9.4 z" class="ah" style="fill:var(--c-${h})"/>
     </marker>
-    <marker id="ahr-${h}" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="17" markerHeight="17" orient="auto" markerUnits="userSpaceOnUse">
+    <marker id="ahr-${h}" viewBox="0 0 10 10" refX="${HEAD.road.refX}" refY="5" markerWidth="17" markerHeight="17" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0 0.6 L10 5 L0 9.4 z" class="ah" style="fill:var(--c-${h})${h === 'white' ? ';stroke:var(--ink-soft);stroke-width:1.2' : ''}"/>
     </marker>`).join('');
 
@@ -71,17 +89,19 @@ export function renderBoard(p, layout, styles, view) {
       // A combined arrow is drawn as a road: two rails, because it stands for
       // a whole road of arrows.
       // White would vanish on light paper, so its road gets a dark edge.
-      const edge = st.hue === 'white' ? `<path class="rail-edge" d="${a.d}"/>` : '';
+      // The head goes on the top rail so it covers the ends of all of them.
+      const d = pullBack(a.d, HEAD.road.back);
+      const edge = st.hue === 'white' ? `<path class="rail-edge" d="${d}"/>` : '';
       return `<g class="arrow road${hint}" data-arrow="${a.id}" style="--i:${i}">
         <path class="glow" d="${a.d}" style="${stroke}"/>${edge}
-        <path class="rail-outer" d="${a.d}" style="${stroke}" marker-end="url(#ahr-${st.hue})"/>
-        <path class="rail-inner" d="${a.d}"/>
+        <path class="rail-outer" d="${d}" style="${stroke}"/>
+        <path class="rail-inner" d="${d}" marker-end="url(#ahr-${st.hue})"/>
       </g>`;
     }
     const dash = st.dash ? `;stroke-dasharray:${st.dash}` : '';
     return `<g class="arrow${hint}" data-arrow="${a.id}" style="--i:${i}">
       <path class="glow" d="${a.d}" style="${stroke}"/>
-      <path class="line" d="${a.d}" style="${stroke}${dash}" marker-end="url(#ah-${st.hue})"/>
+      <path class="line" d="${pullBack(a.d, HEAD.line.back)}" style="${stroke}${dash}" marker-end="url(#ah-${st.hue})"/>
     </g>`;
   }).join('');
 
