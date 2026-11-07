@@ -23,10 +23,6 @@ li { margin: 6px 0; }
 .example svg { width: 100%; max-width: 520px; height: auto; font-family: var(--font-num); }
 .example .key { display: flex; flex-wrap: wrap; gap: 6px 22px; justify-content: center; font-size: 15px; }
 .example .key b { font-weight: 700; }
-.themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 12px; }
-.themes div { border: 1px solid var(--rule); border-radius: 12px; padding: 10px 12px; min-width: 0; }
-.themes b { display: block; font: 800 16px/1.25 var(--font-display); }
-.themes small { color: var(--ink-soft); font-size: 13.5px; }
 .note { background: var(--pencil-tint); border-radius: 12px; padding: 12px 16px; }
 .foot { color: var(--ink-soft); font-size: 13px; margin-top: 24px; }
 @media (max-width: 520px) { .sheet { padding: 22px 18px 24px; } h1 { font-size: 28px; } }
@@ -70,30 +66,20 @@ li { margin: 6px 0; }
       <li><b>Stars</b> show how hard a puzzle is. Every theme starts at one star and climbs to five.</li>
     </ul>
 
-    <h2>The puzzles</h2>
-    <p id="theme-count">The puzzles come in themes, each climbing from one star to five.</p>
-    <div class="themes" id="themes"></div>
+    <h2>A personal note</h2>
+    <p>I encountered arrow pictures as a grade schooler in the &rsquo;80s and &rsquo;90s, and I have fond memories of going through the workbooks to figure them out. But when I went searching for them, I had trouble finding examples, except scattered through random PDFs. So when it was age appropriate for my son, I introduced them to him, first on paper, and when he ended up enjoying them, as a simple web app. Implementation was done with Claude (Opus 5.5), both for the coding and for puzzle creation. All of the puzzles have been played and iterated on for quality.</p>
 
     <h2>Where it comes from</h2>
     <p>Arrow pictures come from <a href="https://en.wikipedia.org/wiki/Comprehensive_School_Mathematics_Program">CSMP</a>, the Comprehensive School Mathematics Program, a math curriculum from the 1970s and 1980s. CSMP taught arithmetic through pictures: colored arrows for relations like &ldquo;is 2 more than&rdquo;, the Papy Minicomputer for place value, and string diagrams for sorting. Many activities here follow its lessons, like labeling the dots on an arrow road, drawing every missing arrow, and building a road from 2 to 23 with +5 and &minus;2 arrows. The <a href="https://stern.buffalostate.edu/CSMPProgram/">CSMP teacher&rsquo;s guides</a> are still online.</p>
-    <p>This site isn&rsquo;t affiliated with CSMP. Every puzzle here is new, most made by a puzzle generator and some by hand, and every one is checked by a solver that proves it has exactly one answer.</p>
+    <p>This site isn&rsquo;t affiliated with CSMP. Every puzzle here is new, and a solver checks that each one has exactly one answer.</p>
 
     <h2>Your progress</h2>
     <p class="note">Your answers and checkmarks are saved in this browser, on this device. There&rsquo;s no account, and nothing is sent anywhere. That also means progress doesn&rsquo;t follow you to another device or browser, and it&rsquo;s lost if you clear this site&rsquo;s data or play in a private window.</p>
 
-    <h2>Who made it</h2>
-    <p>Arrow Pictures was made for a young puzzle fan. Every theme was tried by our test player, and the puzzles changed whenever something didn&rsquo;t work.</p>
+    <h2>Open source</h2>
     <p>The code is open source under the MIT license, <a href="https://github.com/robinba-math/arrow-pictures">on GitHub</a>.</p>
   </main>
 
   <p class="foot"><a href="index.html">Back to the puzzles</a></p>
 </div>
 
-<script type="module">
-  import THEMES from './puzzles.js';
-  const themes = THEMES.filter((t) => !t.archive);
-  const total = themes.reduce((n, t) => n + t.puzzles.length, 0);
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-  document.getElementById('theme-count').textContent = `${total} puzzles in ${themes.length} themes, each climbing from one star to five, plus an archive of earlier puzzles.`;
-  document.getElementById('themes').innerHTML = themes.map((t) => `<div><b>${esc(t.title)}</b><small>${esc(t.blurb)}</small></div>`).join('');
-</script>
