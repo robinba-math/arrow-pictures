@@ -2,6 +2,9 @@
 
 CSMP-style arrow picture puzzles: colored arrows stand for operations, and
 the player fills in the missing numbers or works out the mystery rules.
+CSMP (the Comprehensive School Mathematics Program) also called these arrow
+diagrams and arrow roads, part of its "language of arrows"; Frédérique
+Papy's earlier work called them graphs.
 
 **Play it at https://robinba-math.github.io/arrow-pictures/**
 
