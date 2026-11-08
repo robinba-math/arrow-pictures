@@ -704,16 +704,19 @@ function dismissCard() {
 }
 
 // The whole picture should be on screen without scrolling, whatever sits
-// above it (instructions, a tip): it takes the height left between
+// above or below it (instructions, a tip, an open hint): it takes the height left between
 // its top and the bottom of the window, less the status bar under it.
 const BOARD_MIN = 300;
+const BOARD_MIN_WITH_HINT = 230;
 const BOARD_MAX = 760;
 function fitBoard() {
   const svg = $('stage').querySelector('svg.board');
   if (!svg) return;
   const top = svg.getBoundingClientRect().top + scrollY;
-  const room = innerHeight - top - $('status').offsetHeight - 28;
-  svg.style.maxHeight = `${Math.round(Math.min(BOARD_MAX, Math.max(BOARD_MIN, room)))}px`;
+  // An open hint sits between the picture and the status bar.
+  const hint = $('hintbox').hidden ? 0 : $('hintbox').offsetHeight + 12;
+  const room = innerHeight - top - $('status').offsetHeight - hint - 28;
+  svg.style.maxHeight = `${Math.round(Math.min(BOARD_MAX, Math.max(hint ? BOARD_MIN_WITH_HINT : BOARD_MIN, room)))}px`;
 }
 addEventListener('resize', fitBoard);
 document.fonts?.ready.then(fitBoard);
@@ -990,19 +993,24 @@ function renderHint() {
   if (h.fix) {
     const n = h.wrong.length;
     box.className = 'hint is-fix';
-    box.innerHTML = `<div class="lvl">Fix this first</div>
-      <p>${n === 1 ? 'One of your answers doesn’t fit' : `${n} of your answers don’t fit`}. It’s marked in red. Clear it and try again.</p>
-      <button id="clear-wrong">Clear ${n === 1 ? 'it' : 'them'}</button>`;
+    box.innerHTML = `<div class="head"><div class="lvl">Fix this first</div>
+        <button class="act" id="clear-wrong">Clear ${n === 1 ? 'it' : 'them'}</button></div>
+      <button class="close" id="close-hint" aria-label="Close the hint">×</button>
+      <p>${n === 1 ? 'One of your answers doesn’t fit' : `${n} of your answers don’t fit`}. It’s marked in red. Clear it and try again.</p>`;
     btn.textContent = 'Hint';
     return;
   }
   const titles = ['Where to look', 'How to work it out', 'The answer'];
   const texts = [h.levels.where, h.levels.how, h.levels.what];
   box.className = 'hint';
-  box.innerHTML = `<div class="steps" aria-hidden="true">${[1, 2, 3].map((i) => `<span class="${i <= level ? 'on' : ''}"></span>`).join('')}</div>
-    <div class="lvl">${titles[level - 1]}</div>
-    ${texts.slice(0, level).map((t, i) => `<p${i < level - 1 ? ' style="color:var(--ink-soft)"' : ''}>${t}</p>`).join('')}
-    ${level === 3 ? '<button id="apply-hint">Fill it in</button>' : ''}`;
+  const next = level === 1 ? 'More help' : level === 2 ? 'Show answer' : null;
+  // The button sits up top beside the title, so it's never cut off.
+  box.innerHTML = `<div class="head"><div class="lvl">${titles[level - 1]}</div>
+      <div class="steps" aria-hidden="true">${[1, 2, 3].map((i) => `<span class="${i <= level ? 'on' : ''}"></span>`).join('')}</div>
+      ${next ? `<button class="act" id="more-hint">${next}</button>` : '<button class="act" id="apply-hint">Fill it in</button>'}</div>
+    <button class="close" id="close-hint" aria-label="Close the hint">×</button>
+    <div class="texts"><p>${texts[level - 1]}</p>${texts.slice(0, level - 1).reverse()
+      .map((t, i) => `<p class="earlier"><b>${titles[level - 2 - i]}:</b> ${t}</p>`).join('')}</div>`;
   btn.textContent = level === 1 ? 'More help' : level === 2 ? 'Show answer' : 'Hint';
   btn.disabled = level === 3;
 }
@@ -1147,6 +1155,7 @@ function renderAll() {
   renderKeys();
   renderHint();
   renderStatus();
+  fitBoard();
 }
 
 // ---- Actions ---------------------------------------------------------------
@@ -1406,6 +1415,8 @@ $('card').addEventListener('cancel', (e) => { e.preventDefault(); dismissCard();
 $('hintbox').addEventListener('click', (e) => {
   if (e.target.id === 'apply-hint') applyHint();
   if (e.target.id === 'clear-wrong') clearWrong();
+  if (e.target.id === 'more-hint') askHint();
+  if (e.target.id === 'close-hint') { hintState = null; renderAll(); }
 });
 $('status').addEventListener('click', (e) => {
   if (e.target.id === 'go-next') load(idx + 1);
