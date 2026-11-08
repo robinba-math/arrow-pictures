@@ -1,6 +1,16 @@
 {
   "themes": [
     {
+      "dir": "lots-of-dots",
+      "title": "Lots of Dots",
+      "blurb": "Every rule is shown. Lots of numbers to work out."
+    },
+    {
+      "dir": "arrows-and-nodes",
+      "title": "Arrows and Nodes",
+      "blurb": "Find the rules, then fill the dots."
+    },
+    {
       "dir": "mastermind-mysteries",
       "title": "Mastermind Mysteries",
       "blurb": "Very few dots. Crack the rules."
@@ -9,16 +19,6 @@
       "dir": "mastermind-mysteries-2",
       "title": "Mastermind Mysteries II",
       "blurb": "More rule cracking, now with brown, gray and white arrows."
-    },
-    {
-      "dir": "arrows-and-nodes",
-      "title": "Arrows and Nodes",
-      "blurb": "Find the rules, then fill the dots."
-    },
-    {
-      "dir": "lots-of-dots",
-      "title": "Lots of Dots",
-      "blurb": "Every rule is shown. Lots of numbers to work out."
     },
     {
       "dir": "below-zero",

@@ -621,7 +621,6 @@ function roadHint() {
 // road...), a card says what it is: what the thing means, never how to
 // solve. Each is shown once, remembered in this browser.
 
-const FIRST_PUZZLE = 'ap-221'; // Dot to dot: every rule shown, just numbers
 const listWords = (xs, and) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} ${and} ${xs.at(-1)}` : xs[0] || '');
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -1466,12 +1465,10 @@ document.addEventListener('keydown', (e) => {
 if (!library.length) {
   $('stage').innerHTML = '<div class="empty">No puzzles passed the checker, so there is nothing to show.</div>';
 } else {
-  // Open on the last puzzle visited, or the first unsolved one. Someone new
-  // starts on a puzzle with every rule shown, to learn what arrows do before
-  // meeting mystery rules.
+  // Open on the last puzzle visited, or the first unsolved one. The first
+  // theme (Lots of Dots) shows every rule, so someone new learns what arrows
+  // do before meeting mystery rules.
   const last = library.findIndex((e) => e.json.id === store.get('ap:last', null));
   const firstUnsolved = library.findIndex((e) => !store.get(keyFor(e), null)?.solved);
-  const anySaved = library.some((e) => store.get(keyFor(e), null));
-  const gentle = library.findIndex((e) => e.json.id === FIRST_PUZZLE);
-  load(last >= 0 ? last : !anySaved && gentle >= 0 ? gentle : Math.max(0, firstUnsolved));
+  load(last >= 0 ? last : Math.max(0, firstUnsolved));
 }

@@ -113,8 +113,9 @@ writing puzzles, and add to it whenever feedback comes in.
   combined arrow, secret recipe, gray/white, a rule only inside a combined
   arrow, missing arrows, roads, checkpoints, half-built roads, ends with no
   number), wherever the player meets them first, since themes can be played
-  in any order. A first visit gets a short welcome instead, and starts on
-  Dot to dot (every rule shown) rather than a Mastermind puzzle. Cards say
+  in any order. A first visit gets a short welcome instead. Lots of Dots
+  is the first theme, so a newcomer starts on Dot to dot (every rule shown)
+  rather than a Mastermind puzzle. Cards say
   what a thing is, never how to solve. (2026-11-07)
 - **Tips teach an idea, never how to solve the puzzle.** The Below Zero
   tips (elevator floors, owing money) stay; tips like "you already know
