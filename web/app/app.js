@@ -668,29 +668,43 @@ const EXAMPLE = `<svg viewBox="0 0 520 120" aria-hidden="true">
 </svg>`;
 
 function renderCards() {
+  const dlg = $('card');
   const welcome = !store.get('ap:welcomed', false);
-  $('welcome').hidden = !welcome;
-  if (welcome) {
-    $('welcome').innerHTML = `<h3>Welcome to Arrow Pictures!</h3>
-      <p>Each color of arrow is a rule, like +4 or ×2, and every arrow of that color does the same thing. Use the rules to fill in the empty dots.</p>
-      <div class="example">${EXAMPLE}<small><b style="color:var(--c-scarlet)">Scarlet</b> is +4 and <b style="color:var(--c-yellow)">yellow</b> is ×2, so the empty dot is 14.</small></div>
-      <div class="row"><button data-card="welcome">Got it</button><a href="about.html">More about how to play</a></div>`;
-  }
   // New ideas wait until the welcome is out of the way.
   const seen = new Set(store.get('ap:seen', []));
   const fresh = welcome ? [] : ideasHere().filter(([key]) => !seen.has(key));
-  $('idea').hidden = !fresh.length;
-  $('idea').dataset.keys = fresh.map(([key]) => key).join(' ');
-  if (fresh.length) {
-    $('idea').innerHTML = `<div class="lvl">New idea${fresh.length > 1 ? 's' : ''}</div>
-      ${fresh.length > 1 ? `<ul>${fresh.map(([, html]) => `<li>${html}</li>`).join('')}</ul>` : `<p>${fresh[0][1]}</p>`}
-      <div class="row"><button data-card="idea">Got it</button></div>`;
+  const kind = welcome ? 'welcome' : fresh.length ? 'idea' : '';
+  if (!kind) {
+    if (dlg.open) dlg.close();
+    return;
   }
-  fitBoard();
+  const keys = fresh.map(([key]) => key).join(' ');
+  if (dlg.dataset.kind !== kind || dlg.dataset.keys !== keys) {
+    dlg.dataset.kind = kind;
+    dlg.dataset.keys = keys;
+    dlg.innerHTML = kind === 'welcome'
+      ? `<h3 id="card-title">Welcome to Arrow Pictures!</h3>
+        <p>Each color of arrow is a rule, like +4 or ×2, and every arrow of that color does the same thing. Use the rules to fill in the empty dots.</p>
+        <div class="example">${EXAMPLE}<small><b style="color:var(--c-scarlet)">Scarlet</b> is +4 and <b style="color:var(--c-yellow)">yellow</b> is ×2, so the empty dot is 14.</small></div>
+        <div class="row"><button data-card="welcome" autofocus>Got it</button><a href="about.html">More about how to play</a></div>`
+      : `<div class="lvl">${cur.json.title}</div>
+        <h3 id="card-title">New idea${fresh.length > 1 ? 's' : ''}</h3>
+        ${fresh.length > 1 ? `<ul>${fresh.map(([, html]) => `<li>${html}</li>`).join('')}</ul>` : `<p>${fresh[0][1]}</p>`}
+        <div class="row"><button data-card="idea" autofocus>Got it</button></div>`;
+  }
+  if (!dlg.open) dlg.showModal();
+}
+
+function dismissCard() {
+  const dlg = $('card');
+  if (dlg.dataset.kind === 'welcome') store.set('ap:welcomed', true);
+  else store.set('ap:seen', [...new Set([...store.get('ap:seen', []), ...dlg.dataset.keys.split(' ').filter(Boolean)])]);
+  dlg.dataset.kind = '';
+  renderCards();
 }
 
 // The whole picture should be on screen without scrolling, whatever sits
-// above it (instructions, a tip, a card): it takes the height left between
+// above it (instructions, a tip): it takes the height left between
 // its top and the bottom of the window, less the status bar under it.
 const BOARD_MIN = 300;
 const BOARD_MAX = 760;
@@ -703,12 +717,6 @@ function fitBoard() {
 }
 addEventListener('resize', fitBoard);
 document.fonts?.ready.then(fitBoard);
-
-function dismissCard(which) {
-  if (which === 'welcome') store.set('ap:welcomed', true);
-  else store.set('ap:seen', [...new Set([...store.get('ap:seen', []), ...$('idea').dataset.keys.split(' ').filter(Boolean)])]);
-  renderCards();
-}
 
 // ---- Rendering -------------------------------------------------------------
 
@@ -1397,9 +1405,9 @@ $('instant').addEventListener('change', (e) => {
   if (settings.instant && selected) shown.delete(targetKey(selected));
   renderAll();
 });
-for (const id of ['welcome', 'idea']) {
-  $(id).addEventListener('click', (e) => { const b = e.target.closest('[data-card]'); if (b) dismissCard(b.dataset.card); });
-}
+$('card').addEventListener('click', (e) => { if (e.target.closest('[data-card]')) dismissCard(); });
+// Escape closes it too, and counts as Got it.
+$('card').addEventListener('cancel', (e) => { e.preventDefault(); dismissCard(); });
 $('hintbox').addEventListener('click', (e) => {
   if (e.target.id === 'apply-hint') applyHint();
   if (e.target.id === 'clear-wrong') clearWrong();
@@ -1431,6 +1439,7 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
+  if ($('card').open) return;
   if (e.target.closest?.('input, textarea, select')) return;
   if (e.target.closest?.('button') && (e.key === 'Enter' || e.key === ' ')) return; // let buttons click
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); undo(e.shiftKey ? 1 : -1); return; }

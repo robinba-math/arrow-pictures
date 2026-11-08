@@ -74,21 +74,23 @@
 .inv-say, .inv-cap { font: 400 12.5px var(--font-body); fill: var(--ink-soft); text-anchor: middle; }
 .inv-cap { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 10.5px; }
 .investigate[hidden] { display: none; }
-/* Welcome and new-idea cards: shown once, then remembered. They float over
-   the top of the picture so they never push it off the screen. */
-.stage-wrap { position: relative; }
-.cards { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 5; width: min(640px, calc(100% - 32px)); display: grid; gap: 10px; }
-.card { box-shadow: 0 12px 32px rgb(15 20 30 / .28); border: 1px solid var(--rule); padding: 14px 16px; border-radius: 14px; background: var(--pencil-tint); max-width: 68ch; display: grid; gap: 8px; }
+/* Welcome and new-idea cards: a dialog shown once, then remembered. The
+   page behind is blurred and can't be used until it's dismissed. */
+.card { width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow-y: auto; padding: 24px 26px;
+  border: 1px solid var(--rule); border-radius: 18px; background: var(--board); color: var(--ink);
+  box-shadow: 0 24px 60px rgb(15 20 30 / .35); }
+.card[open] { display: grid; gap: 14px; }
+.card::backdrop { background: rgb(15 20 30 / .4); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .card .lvl { font: 800 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--pencil); }
-.card h3 { margin: 0; font: 800 19px/1.2 var(--font-display); }
-.card p { margin: 0; font-size: 15px; }
-.card ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 15px; }
-.card .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
-.card button { border: 0; border-radius: 10px; padding: 8px 16px; background: var(--pencil); color: var(--board); font-weight: 700; cursor: pointer; }
-.card a { color: var(--pencil); font-size: 14px; }
-.card .example { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
-.card .example svg { width: 300px; max-width: 100%; height: auto; flex: none; }
-.card .example small { font-size: 14px; color: var(--ink-soft); }
+.card h3 { margin: 0; font: 800 26px/1.15 var(--font-display); letter-spacing: -0.01em; text-wrap: balance; }
+.card p { margin: 0; font-size: 16px; }
+.card ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 16px; }
+.card .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 4px; }
+.card button { border: 0; border-radius: 12px; padding: 11px 26px; background: var(--pencil); color: var(--board); font-weight: 700; font-size: 16px; cursor: pointer; }
+.card a { color: var(--pencil); font-size: 15px; }
+.card .example { display: grid; gap: 8px; justify-items: center; padding: 14px; border-radius: 12px; background: var(--paper); }
+.card .example svg { width: 100%; max-width: 420px; height: auto; }
+.card .example small { font-size: 15px; color: var(--ink-soft); text-align: center; }
 .rule-row .inside { display: block; font-size: 12px; font-weight: 400; color: var(--ink-soft); }
 .tip { margin: 10px 0 0; padding: 10px 14px 10px 42px; border-radius: 12px; background: var(--pencil-tint); color: var(--ink); max-width: 68ch; position: relative; font-size: 15px; }
 .tip::before { content: "💡"; position: absolute; left: 13px; top: 9px; font-size: 18px; }
@@ -218,16 +220,11 @@ button.slot .q { color: var(--ink-soft); font-style: normal; }
         <p class="help" id="instructions"></p>
         <p class="tip" id="tip" hidden></p>
       </div>
-      <div class="stage-wrap">
-        <div class="stage" id="stage"><div class="empty">Drawing the arrows&hellip;</div></div>
-        <div class="cards">
-          <div class="card welcome" id="welcome" hidden></div>
-          <div class="card idea" id="idea" hidden></div>
-        </div>
-      </div>
+      <div class="stage" id="stage"><div class="empty">Drawing the arrows&hellip;</div></div>
       <div class="status" id="status" aria-live="polite"><span class="msg" id="msg"></span></div>
       <div class="investigate" id="investigate" role="dialog" aria-label="Investigate an arrow" hidden></div>
     </section>
+    <dialog class="card" id="card" aria-labelledby="card-title"></dialog>
 
     <aside class="box" aria-label="Rules and keypad">
       <section>
