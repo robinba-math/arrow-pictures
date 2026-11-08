@@ -109,6 +109,13 @@ writing puzzles, and add to it whenever feedback comes in.
   user. This includes the hidden middle number of a combined arrow. A puzzle
   can opt into `"fractions": "any"` for a later, harder level. (2026-11-01)
 - **Denominators up to 12**, not just halves, thirds and quarters. (2026-11-01)
+- **New ideas get a card the first time they appear** (mystery rule,
+  combined arrow, secret recipe, gray/white, a rule only inside a combined
+  arrow, missing arrows, roads, checkpoints, half-built roads, ends with no
+  number), wherever the player meets them first, since themes can be played
+  in any order. A first visit gets a short welcome instead, and starts on
+  Dot to dot (every rule shown) rather than a Mastermind puzzle. Cards say
+  what a thing is, never how to solve. (2026-11-07)
 - **Tips teach an idea, never how to solve the puzzle.** The Below Zero
   tips (elevator floors, owing money) stay; tips like "you already know
   yellow, so brown tells you about scarlet" were removed. (2026-11-07)

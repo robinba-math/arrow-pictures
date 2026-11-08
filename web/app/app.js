@@ -28,6 +28,7 @@ const MODES = {
   'find-rules': { eyebrow: 'Find the rules', help: 'Every number is shown. Work out what each mystery color does to a number.' },
   mixed: { eyebrow: 'Find the rules and the numbers', help: 'Work out the mystery rules, then use them to fill in the empty dots.' },
 };
+const oneMystery = 'Work out the mystery rule, then use it to fill in the empty dots.';
 
 // ---- Library ---------------------------------------------------------------
 
@@ -614,6 +615,86 @@ function roadHint() {
   };
 }
 
+// ---- Welcome and new ideas -------------------------------------------------
+// A first visit gets a short welcome. After that, the first time a puzzle
+// uses an idea the player hasn't met (a mystery rule, a combined arrow, a
+// road...), a card says what it is: what the thing means, never how to
+// solve. Each is shown once, remembered in this browser.
+
+const FIRST_PUZZLE = 'ap-221'; // Dot to dot: every rule shown, just numbers
+const listWords = (xs, and) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} ${and} ${xs.at(-1)}` : xs[0] || '');
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// Plain colors that never get an arrow of their own, only a step inside a
+// combined arrow.
+function insideOnly() {
+  if (cur.p.road) return [];
+  return cur.p.baseColors
+    .filter((c) => !cur.p.arrows.some((a) => a.color === c))
+    .map((c) => ({ id: c, in: cur.p.colors.filter((x) => x.composite?.includes(c)).map((x) => x.id) }))
+    .filter((x) => x.in.length);
+}
+
+function ideasHere() {
+  const p = cur.p;
+  const low = (id) => nameOf(id).toLowerCase();
+  const out = [];
+  const combined = p.colors.filter((c) => c.composite);
+  if (p.mystery.length) out.push(['mystery', 'A <b>?</b> rule is a mystery. Find arrows of that color where you know both numbers, and work out what the arrow does.']);
+  if (combined.length) {
+    const shown = combined.find((c) => !c.hidden);
+    const what = shown
+      ? `<b>${low(shown.id)} means ${shown.composite.map(low).join(' then ')}</b> does ${shown.composite.map((x) => `a ${low(x)} step`).join(', then ')}`
+      : 'it does one color’s step, then the next';
+    out.push(['combined', `A ${low(combined[0].id)} arrow is ${combined[0].composite.length > 2 ? 'several' : 'two'} arrows in one: ${what}. Click one to see it step by step.`]);
+  }
+  if (combined.length > 1) out.push(['several', `${cap(listWords(combined.slice(1).map((c) => low(c.id)), 'and'))} arrows are combined arrows too, each with its own recipe.`]);
+  if (p.hidden.length) out.push(['secret', `The ${listWords(p.hidden.map(low), 'and')} arrow keeps its recipe secret. Pick its colors in order from the menus on the right.`]);
+  for (const x of insideOnly().slice(0, 1)) out.push(['inside', `${nameOf(x.id)} has no arrows of its own here. It only appears as a step inside ${listWords(x.in.map(low), 'and')}.`]);
+  if (p.draw) out.push(['missing', `Some ${low(p.draw.color)} arrows are missing. Press ${low(p.draw.color)}’s ✏️ Draw pen, click the dot where an arrow starts, then the dot where it ends. Each arrow is checked right away.`]);
+  if (p.road) out.push(['road', 'Build a road of arrows from 🚗 to 🏁. Click a dot, then click an empty spot to make a new dot and type its number. Any road works; the shortest is a bonus.']);
+  if (p.road?.via.length) out.push(['checkpoint', '⭐ marks a checkpoint: your road has to stop there on the way.']);
+  if (p.road && p.arrows.length) out.push(['prebuilt', 'Arrows already in the picture can be part of your road.']);
+  const blankEnds = p.road ? [p.road.from, p.road.to].filter((id) => !p.nodes.find((n) => n.id === id).given) : [];
+  if (blankEnds.length) out.push(['blank-end', `The ${blankEnds.map((id) => (id === p.road.from ? '🚗' : '🏁')).join(' and ')} dot${blankEnds.length > 1 ? 's have' : ' has'} no number yet. Work ${blankEnds.length > 1 ? 'them' : 'it'} out first.`]);
+  return out;
+}
+
+const EXAMPLE = `<svg viewBox="0 0 520 120" aria-hidden="true">
+  <path d="M100 60 H220" style="stroke:var(--c-scarlet);stroke-width:3.2;fill:none"/><path d="M212 50 L232 60 L212 70 z" style="fill:var(--c-scarlet)"/>
+  <path d="M298 60 H410" style="stroke:var(--c-yellow);stroke-width:3.2;stroke-dasharray:11 6;fill:none"/><path d="M402 50 L422 60 L402 70 z" style="fill:var(--c-yellow)"/>
+  <circle cx="70" cy="60" r="28" style="fill:var(--dot-given);stroke:var(--ink);stroke-width:2.2"/><text x="70" y="60" dy="0.35em" text-anchor="middle" style="fill:var(--ink);font-size:24px;font-weight:700;font-family:var(--font-num)">3</text>
+  <circle cx="260" cy="60" r="28" style="fill:var(--dot-given);stroke:var(--ink);stroke-width:2.2"/><text x="260" y="60" dy="0.35em" text-anchor="middle" style="fill:var(--ink);font-size:24px;font-weight:700;font-family:var(--font-num)">7</text>
+  <circle cx="450" cy="60" r="28" style="fill:var(--board);stroke:var(--ink-soft);stroke-width:1.8;stroke-dasharray:4 4"/><text x="450" y="60" dy="0.35em" text-anchor="middle" style="fill:var(--ink-soft);font-size:24px;font-weight:700;font-family:var(--font-num)">?</text>
+</svg>`;
+
+function renderCards() {
+  const welcome = !store.get('ap:welcomed', false);
+  $('welcome').hidden = !welcome;
+  if (welcome) {
+    $('welcome').innerHTML = `<h3>Welcome to Arrow Pictures!</h3>
+      <p>Each color of arrow is a rule, like +4 or ×2, and every arrow of that color does the same thing. Use the rules to fill in the empty dots.</p>
+      <div class="example">${EXAMPLE}<small><b style="color:var(--c-scarlet)">Scarlet</b> is +4 and <b style="color:var(--c-yellow)">yellow</b> is ×2, so the empty dot is 14.</small></div>
+      <div class="row"><button data-card="welcome">Got it</button><a href="about.html">More about how to play</a></div>`;
+  }
+  // New ideas wait until the welcome is out of the way.
+  const seen = new Set(store.get('ap:seen', []));
+  const fresh = welcome ? [] : ideasHere().filter(([key]) => !seen.has(key));
+  $('idea').hidden = !fresh.length;
+  $('idea').dataset.keys = fresh.map(([key]) => key).join(' ');
+  if (fresh.length) {
+    $('idea').innerHTML = `<div class="lvl">New idea${fresh.length > 1 ? 's' : ''}</div>
+      ${fresh.length > 1 ? `<ul>${fresh.map(([, html]) => `<li>${html}</li>`).join('')}</ul>` : `<p>${fresh[0][1]}</p>`}
+      <div class="row"><button data-card="idea">Got it</button></div>`;
+  }
+}
+
+function dismissCard(which) {
+  if (which === 'welcome') store.set('ap:welcomed', true);
+  else store.set('ap:seen', [...new Set([...store.get('ap:seen', []), ...$('idea').dataset.keys.split(' ').filter(Boolean)])]);
+  renderCards();
+}
+
 // ---- Rendering -------------------------------------------------------------
 
 const fmtRat = (r) => pretty(rational.format(r));
@@ -828,7 +909,8 @@ function renderRules() {
       const label = text ? `${name} rule, your answer ${text}` : `${name} rule, not worked out yet`;
       val = `<button class="${cls.join(' ')}" data-color="${c.id}" aria-label="${label}" ${progress.solved ? 'disabled' : ''}>${shownText}</button>`;
     }
-    const nameText = c.hidden ? `${name} means\u2026` : name;
+    const inside = insideOnly().find((x) => x.id === c.id);
+    const nameText = (c.hidden ? `${name} means\u2026` : name) + (inside ? `<small class="inside">only inside ${listWords(inside.in.map((x) => nameOf(x).toLowerCase()), 'and')}</small>` : '');
     const on = pen?.color === c.id;
     const penBtn = penColors().includes(c.id)
       ? `<button class="pen${on ? ' is-on' : ''}" data-pen="${c.id}" aria-pressed="${on}" ${progress.solved ? 'disabled' : ''}>✏️ ${on ? 'Drawing' : 'Draw'}</button>`
@@ -955,11 +1037,10 @@ function renderHeader() {
   $('mode').textContent = recipeOnly ? 'Find the recipe and the numbers' : mode.eyebrow;
   $('title').textContent = cur.json.title || `Puzzle ${idx + 1}`;
   const secret = cur.p.hidden.map((id) => nameOf(id).toLowerCase());
+  const help = r.mode === 'mixed' && cur.p.mystery.length === 1 ? oneMystery : mode.help;
   $('instructions').textContent = secret.length
-    ? `${recipeOnly ? MODES['find-values'].help : mode.help} The ${secret.join(' and ')} arrow${secret.length > 1 ? 's hide their' : ' hides its'} recipe: choose which colors it uses, in order.`
-    : mode.help;
-  const combined = cur.p.colors.filter((c) => c.composite).map((c) => nameOf(c.id).toLowerCase());
-  if (combined.length) $('instructions').textContent += ` Stuck? Click a ${combined.length > 1 ? `${combined.slice(0, -1).join(', ')} or ${combined.at(-1)}` : combined[0]} arrow to take it step by step.`;
+    ? `${recipeOnly ? MODES['find-values'].help : help} The ${secret.join(' and ')} arrow${secret.length > 1 ? 's hide their' : ' hides its'} recipe: choose which colors it uses, in order.`
+    : help;
   const drawName = cur.p.draw && nameOf(cur.p.draw.color).toLowerCase();
   if (cur.p.draw) {
     const c = counts();
@@ -976,9 +1057,12 @@ function renderHeader() {
       cur.p.mystery.length ? 'First work out the mystery rule from its arrows.' : '',
       c.blanks ? `Fill in the empty dots${cur.p.mystery.length ? ' too' : ''}.` : '',
       cur.p.arrows.length ? 'Arrows already drawn can be part of your road.' : '',
-      'Press a color’s Draw pen, click a dot, then click an empty spot to make a new dot and type its number.',
+      'Press a color’s Draw pen, click a dot, then click an empty spot to make a new dot and type its number. Any road that gets there works.',
     ].filter(Boolean).join(' ');
   }
+  const combined = cur.p.colors.filter((c) => c.composite).map((c) => nameOf(c.id).toLowerCase());
+  if (combined.length) $('instructions').textContent += ` Stuck? Click a ${listWords(combined, 'or')} arrow to take it step by step.`;
+  renderCards();
   $('tip').hidden = !cur.json.tip;
   $('tip').textContent = cur.json.tip || '';
   const n = r.difficulty.rating;
@@ -1297,6 +1381,9 @@ $('instant').addEventListener('change', (e) => {
   if (settings.instant && selected) shown.delete(targetKey(selected));
   renderAll();
 });
+for (const id of ['welcome', 'idea']) {
+  $(id).addEventListener('click', (e) => { const b = e.target.closest('[data-card]'); if (b) dismissCard(b.dataset.card); });
+}
 $('hintbox').addEventListener('click', (e) => {
   if (e.target.id === 'apply-hint') applyHint();
   if (e.target.id === 'clear-wrong') clearWrong();
@@ -1362,8 +1449,12 @@ document.addEventListener('keydown', (e) => {
 if (!library.length) {
   $('stage').innerHTML = '<div class="empty">No puzzles passed the checker, so there is nothing to show.</div>';
 } else {
-  // Open on the last puzzle visited, or the first unsolved one.
+  // Open on the last puzzle visited, or the first unsolved one. Someone new
+  // starts on a puzzle with every rule shown, to learn what arrows do before
+  // meeting mystery rules.
   const last = library.findIndex((e) => e.json.id === store.get('ap:last', null));
   const firstUnsolved = library.findIndex((e) => !store.get(keyFor(e), null)?.solved);
-  load(last >= 0 ? last : Math.max(0, firstUnsolved));
+  const anySaved = library.some((e) => store.get(keyFor(e), null));
+  const gentle = library.findIndex((e) => e.json.id === FIRST_PUZZLE);
+  load(last >= 0 ? last : !anySaved && gentle >= 0 ? gentle : Math.max(0, firstUnsolved));
 }

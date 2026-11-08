@@ -74,6 +74,19 @@
 .inv-say, .inv-cap { font: 400 12.5px var(--font-body); fill: var(--ink-soft); text-anchor: middle; }
 .inv-cap { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 10.5px; }
 .investigate[hidden] { display: none; }
+/* Welcome and new-idea cards: shown once, then remembered. */
+.card { margin: 12px 0 0; padding: 14px 16px; border-radius: 14px; background: var(--pencil-tint); max-width: 68ch; display: grid; gap: 8px; }
+.card .lvl { font: 800 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--pencil); }
+.card h3 { margin: 0; font: 800 19px/1.2 var(--font-display); }
+.card p { margin: 0; font-size: 15px; }
+.card ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 15px; }
+.card .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.card button { border: 0; border-radius: 10px; padding: 8px 16px; background: var(--pencil); color: var(--board); font-weight: 700; cursor: pointer; }
+.card a { color: var(--pencil); font-size: 14px; }
+.card .example { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+.card .example svg { width: 300px; max-width: 100%; height: auto; flex: none; }
+.card .example small { font-size: 14px; color: var(--ink-soft); }
+.rule-row .inside { display: block; font-size: 12px; font-weight: 400; color: var(--ink-soft); }
 .tip { margin: 10px 0 0; padding: 10px 14px 10px 42px; border-radius: 12px; background: var(--pencil-tint); color: var(--ink); max-width: 68ch; position: relative; font-size: 15px; }
 .tip::before { content: "💡"; position: absolute; left: 13px; top: 9px; font-size: 18px; }
 @keyframes inv-in { from { opacity: 0; transform: scale(.98); } }
@@ -200,6 +213,8 @@ button.slot .q { color: var(--ink-soft); font-style: normal; }
         <h2 id="title">Loading puzzle&hellip;</h2>
         <div class="meta"><span class="stars" id="stars" aria-label="Difficulty"></span><span id="counts"></span></div>
         <p class="help" id="instructions"></p>
+        <div class="card welcome" id="welcome" hidden></div>
+        <div class="card idea" id="idea" hidden></div>
         <p class="tip" id="tip" hidden></p>
       </div>
       <div class="stage" id="stage"><div class="empty">Drawing the arrows&hellip;</div></div>
