@@ -74,8 +74,11 @@
 .inv-say, .inv-cap { font: 400 12.5px var(--font-body); fill: var(--ink-soft); text-anchor: middle; }
 .inv-cap { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: 10.5px; }
 .investigate[hidden] { display: none; }
-/* Welcome and new-idea cards: shown once, then remembered. */
-.card { margin: 12px 0 0; padding: 14px 16px; border-radius: 14px; background: var(--pencil-tint); max-width: 68ch; display: grid; gap: 8px; }
+/* Welcome and new-idea cards: shown once, then remembered. They float over
+   the top of the picture so they never push it off the screen. */
+.stage-wrap { position: relative; }
+.cards { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 5; width: min(640px, calc(100% - 32px)); display: grid; gap: 10px; }
+.card { box-shadow: 0 12px 32px rgb(15 20 30 / .28); border: 1px solid var(--rule); padding: 14px 16px; border-radius: 14px; background: var(--pencil-tint); max-width: 68ch; display: grid; gap: 8px; }
 .card .lvl { font: 800 12px var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--pencil); }
 .card h3 { margin: 0; font: 800 19px/1.2 var(--font-display); }
 .card p { margin: 0; font-size: 15px; }
@@ -213,11 +216,15 @@ button.slot .q { color: var(--ink-soft); font-style: normal; }
         <h2 id="title">Loading puzzle&hellip;</h2>
         <div class="meta"><span class="stars" id="stars" aria-label="Difficulty"></span><span id="counts"></span></div>
         <p class="help" id="instructions"></p>
-        <div class="card welcome" id="welcome" hidden></div>
-        <div class="card idea" id="idea" hidden></div>
         <p class="tip" id="tip" hidden></p>
       </div>
-      <div class="stage" id="stage"><div class="empty">Drawing the arrows&hellip;</div></div>
+      <div class="stage-wrap">
+        <div class="stage" id="stage"><div class="empty">Drawing the arrows&hellip;</div></div>
+        <div class="cards">
+          <div class="card welcome" id="welcome" hidden></div>
+          <div class="card idea" id="idea" hidden></div>
+        </div>
+      </div>
       <div class="status" id="status" aria-live="polite"><span class="msg" id="msg"></span></div>
       <div class="investigate" id="investigate" role="dialog" aria-label="Investigate an arrow" hidden></div>
     </section>

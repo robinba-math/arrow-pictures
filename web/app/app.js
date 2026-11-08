@@ -687,7 +687,23 @@ function renderCards() {
       ${fresh.length > 1 ? `<ul>${fresh.map(([, html]) => `<li>${html}</li>`).join('')}</ul>` : `<p>${fresh[0][1]}</p>`}
       <div class="row"><button data-card="idea">Got it</button></div>`;
   }
+  fitBoard();
 }
+
+// The whole picture should be on screen without scrolling, whatever sits
+// above it (instructions, a tip, a card): it takes the height left between
+// its top and the bottom of the window, less the status bar under it.
+const BOARD_MIN = 300;
+const BOARD_MAX = 760;
+function fitBoard() {
+  const svg = $('stage').querySelector('svg.board');
+  if (!svg) return;
+  const top = svg.getBoundingClientRect().top + scrollY;
+  const room = innerHeight - top - $('status').offsetHeight - 28;
+  svg.style.maxHeight = `${Math.round(Math.min(BOARD_MAX, Math.max(BOARD_MIN, room)))}px`;
+}
+addEventListener('resize', fitBoard);
+document.fonts?.ready.then(fitBoard);
 
 function dismissCard(which) {
   if (which === 'welcome') store.set('ap:welcomed', true);
@@ -773,6 +789,7 @@ function renderBoardView() {
   const hadFocus = $('stage').contains(document.activeElement);
   $('stage').classList.toggle('is-drawing', !!pen);
   $('stage').innerHTML = renderBoard(p, layout, cur.styles, view);
+  fitBoard();
   for (const g of $('stage').querySelectorAll('.arrow.road')) g.classList.add('can-investigate');
   if (hadFocus && selected?.kind === 'node') focusTarget(selected);
 }
