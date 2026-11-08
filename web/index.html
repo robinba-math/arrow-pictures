@@ -121,22 +121,28 @@
 .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; }
 
 .rules { display: grid; gap: 6px; }
-.rule-row { display: grid; grid-template-columns: 56px 64px 1fr; align-items: center; gap: 10px; min-height: 48px;
+/* Every rule row is the same height, whether its rule is shown, empty,
+   typed in or being typed, so nothing below it moves: a rule and its words
+   sit on one line. */
+.rule-row { display: grid; grid-template-columns: 56px 64px 1fr; align-items: center; gap: 10px; min-height: 56px;
   padding: 4px 6px 4px 4px; border-radius: 12px; }
 .rule-row.is-hint { background: var(--pencil-tint); }
 .rule-row svg { width: 56px; height: 20px; display: block; }
 .rule-row .name { font-weight: 700; }
 .rule-val { justify-self: start; font-family: var(--font-num); font-weight: 700; font-size: 24px; font-variant-numeric: tabular-nums; line-height: 1.15; }
-.rule-val .big, .rule-val .say { display: block; }
+.rule-val { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+.rule-val.chain, .rule-val.recipe { display: block; white-space: normal; }
 .rule-val .sym { font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif; font-weight: 900; font-size: 1.3em; margin-right: 2px; vertical-align: -0.06em; }
 .rule-val .say { font: 400 13px/1.3 var(--font-body); color: var(--ink-soft); }
 .rule-val.chain { font-size: 15px; font-weight: 400; color: var(--ink-soft); }
 .rule-val.chain b { color: var(--ink); }
-button.slot { min-width: 84px; min-height: 48px; padding: 2px 12px; border-radius: 10px; cursor: pointer; text-align: left;
+button.slot { min-width: 84px; height: 48px; padding: 0 12px; display: flex; align-items: center; border-radius: 10px; cursor: pointer; text-align: left;
   border: 1.8px dashed var(--ink-soft); background: var(--board); color: var(--pencil); }
 button.slot.has-value { border-style: solid; border-color: var(--pencil); }
-button.slot.is-candidates { font-size: 15px; font-weight: 400; font-style: italic; }
-button.slot.is-selected { border: 3px solid var(--pencil); background: var(--pencil-tint); }
+button.slot.is-candidates { font-size: 19px; }
+button.slot.is-candidates .say { display: none; }
+/* Selection is a glow outside the border, so the text inside never moves. */
+button.slot.is-selected { border-style: solid; border-color: var(--pencil); box-shadow: 0 0 0 2px var(--pencil); background: var(--pencil-tint); }
 button.slot.is-wrong { border-color: var(--bad); color: var(--bad); background: var(--bad-tint); }
 button.slot .q { color: var(--ink-soft); font-style: normal; }
 .rule-row.is-recipe { grid-template-columns: 56px 1fr; row-gap: 4px; }
@@ -154,17 +160,17 @@ button.slot .q { color: var(--ink-soft); font-style: normal; }
 .recipe.is-wrong select { border-color: var(--bad); color: var(--bad); background: var(--bad-tint); }
 
 .pad { display: grid; gap: 8px; }
-.pad-target { font-size: 14px; color: var(--ink-soft); min-height: 21px; }
+.pad-target { font-size: 14px; line-height: 1.5; color: var(--ink-soft); min-height: 1.5em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pad-target b { color: var(--pencil); }
-.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.keys { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
 .keys button { min-height: 52px; border-radius: 12px; border: 1px solid var(--rule); background: var(--key);
   font-family: var(--font-num); font-size: 21px; font-weight: 700; cursor: pointer; touch-action: manipulation; }
 .keys button:hover:not(:disabled) { border-color: var(--ink-soft); }
 .keys button:active:not(:disabled) { transform: translateY(1px); }
 .keys button:disabled { opacity: .35; cursor: default; }
 .keys .op { color: var(--pencil); background: var(--pencil-tint); border-color: transparent; font: 900 30px/1 "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 64px; }
-.keys .op small { font: 700 12px var(--font-body); letter-spacing: .02em; }
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; font-size: 24px; }
+.keys .op small { font: 700 11px var(--font-body); letter-spacing: .02em; }
 .keys .wide { grid-column: span 2; }
 .keys .small { font-size: 15px; font-family: var(--font-body); }
 

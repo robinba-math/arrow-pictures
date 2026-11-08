@@ -946,33 +946,28 @@ function renderRules() {
 function renderKeys() {
   const kind = selected?.kind;
   const off = !selected || progress.solved ? 'disabled' : '';
-  const k = (key, label, cls = '', aria = '') => `<button data-key="${key}" class="${cls}" ${off} ${aria ? `aria-label="${aria}"` : ''}>${label}</button>`;
-  const digits = ['7', '8', '9', '4', '5', '6', '1', '2', '3'];
-  let html;
-  if (kind === 'color') {
-    html = [
-      k('+', '+<small>plus</small>', 'op', 'add'), k('-', '−<small>minus</small>', 'op', 'subtract'), k('*', '×<small>times</small>', 'op', 'multiply'), k('/', '÷<small>divide</small>', 'op', 'divide'),
-      ...digits.slice(0, 3).map((d) => k(d, d)), k('back', '⌫', 'small', 'delete'),
-      ...digits.slice(3, 6).map((d) => k(d, d)), k('frac', 'a/b', 'small', 'fraction'),
-      ...digits.slice(6).map((d) => k(d, d)), k('or', 'or', 'small', 'add another possibility'),
-      k('0', '0', 'wide'), k('clear', 'Clear', 'small wide'),
-    ];
-  } else {
-    html = [
-      ...digits.slice(0, 3).map((d) => k(d, d)), k('back', '⌫', 'small', 'delete'),
-      ...digits.slice(3, 6).map((d) => k(d, d)), k('neg', '±', '', 'make negative or positive'),
-      ...digits.slice(6).map((d) => k(d, d)), k('frac', 'a/b', 'small', 'fraction'),
-      k('0', '0', 'wide'), k('clear', 'Clear', 'small wide'),
-    ];
-  }
+  const k = (key, label, cls = '', aria = '', dis = off) => `<button data-key="${key}" class="${cls}" ${dis} ${aria ? `aria-label="${aria}"` : ''}>${label}</button>`;
+  // One layout for dots and rules, so the keypad never changes size: the
+  // + − × ÷ keys only work while a rule is being typed, and the fifth key
+  // of the third row is ± for a dot, or for a rule.
+  const rule = kind === 'color';
+  const opOff = rule ? off : 'disabled';
+  const op = (key, sym, word, aria) => k(key, `${sym}<small>${word}</small>`, 'op', aria, opOff);
+  const html = [
+    k('7', '7'), k('8', '8'), k('9', '9'), op('+', '+', 'plus', 'add'), op('-', '−', 'minus', 'subtract'),
+    k('4', '4'), k('5', '5'), k('6', '6'), op('*', '×', 'times', 'multiply'), op('/', '÷', 'divide', 'divide'),
+    k('1', '1'), k('2', '2'), k('3', '3'), k('frac', 'a/b', 'small', 'fraction'),
+    rule ? k('or', 'or', 'small', 'add another possibility') : k('neg', '±', '', 'make negative or positive'),
+    k('0', '0', 'wide'), k('back', '⌫', 'small', 'delete'), k('clear', 'Clear', 'small wide'),
+  ];
   $('keys').innerHTML = html.join('');
   const t = $('target');
   if (progress.solved) t.innerHTML = 'Solved. Pick another puzzle from the list.';
-  else if (!selected && cur.p.road) t.innerHTML = 'Pick a <b>Draw</b> pen to start. New dots get their numbers typed in here.';
+  else if (!selected && cur.p.road) t.innerHTML = 'Pick a <b>Draw</b> pen to start.';
   else if (!selected) t.innerHTML = 'Tap an empty dot or a <b>?</b> rule to start.';
   else if (kind === 'node') t.innerHTML = 'Typing into the <b>selected dot</b>.';
-  else if (kind === 'scratch') t.innerHTML = 'Typing into the <b>middle dot</b>. It’s scratch paper, so it isn’t checked.';
-  else t.innerHTML = `Typing the <b>${nameOf(selected.id)}</b> rule. Not sure? Use <b>or</b> to list possibilities.`;
+  else if (kind === 'scratch') t.innerHTML = 'Typing into the <b>middle dot</b> (not checked).';
+  else t.innerHTML = `Typing the <b>${nameOf(selected.id)}</b> rule. Not sure? Use <b>or</b>.`;
 }
 
 function renderHint() {
