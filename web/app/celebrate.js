@@ -1,6 +1,6 @@
 // The party after a solve: a pointing finger for the trickiest step during
-// the replay, then confetti, fireworks, a flying banner and a spoken
-// "Good job!". Everything is drawn in overlays that ignore the pointer.
+// the replay, then confetti, fireworks and a flying banner. Everything is
+// drawn in overlays that ignore the pointer.
 
 const HUES = ['scarlet', 'yellow', 'purple', 'blue', 'green', 'orange'];
 
@@ -23,16 +23,6 @@ export function showFinger(el, label) {
     f.classList.add('is-leaving');
     setTimeout(() => f.remove(), 300);
   };
-}
-
-function say(text) {
-  try {
-    const u = new SpeechSynthesisUtterance(text);
-    u.rate = 0.95;
-    u.pitch = 1.25;
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  } catch { /* no speech here */ }
 }
 
 function banner(text) {
@@ -126,7 +116,6 @@ function fireworks() {
 // Returns {stop}, which fades the confetti away.
 export function party() {
   banner('Good Job!!!');
-  say('Good job!');
   return fireworks();
 }
 
