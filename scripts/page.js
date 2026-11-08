@@ -4,6 +4,7 @@
 export const wrap = (body) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head><body>
 ${body}
@@ -11,5 +12,5 @@ ${body}
 
 // Published path -> file in the project, for every file the site serves.
 export const PAGES = { 'index.html': 'web/index.html', 'about.html': 'web/about.html' };
-export const FILES = { 'puzzles.js': 'web/puzzles.js', 'base.css': 'web/base.css' };
+export const FILES = { 'puzzles.js': 'web/puzzles.js', 'base.css': 'web/base.css', 'favicon.svg': 'web/favicon.svg' };
 export const FOLDERS = { app: 'web/app', engine: 'engine' };
