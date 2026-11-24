@@ -630,7 +630,7 @@ function insideOnly() {
   if (cur.p.road) return [];
   return cur.p.baseColors
     .filter((c) => !cur.p.arrows.some((a) => a.color === c))
-    .map((c) => ({ id: c, in: cur.p.colors.filter((x) => x.composite?.includes(c)).map((x) => x.id) }))
+    .map((c) => ({ id: c, in: cur.p.colors.filter((x) => !x.hidden && x.composite?.includes(c)).map((x) => x.id) }))
     .filter((x) => x.in.length);
 }
 
@@ -648,7 +648,7 @@ function ideasHere() {
     out.push(['combined', `A ${low(combined[0].id)} arrow is ${combined[0].composite.length > 2 ? 'several' : 'two'} arrows in one: ${what}. Click one to see it step by step.`]);
   }
   if (combined.length > 1) out.push(['several', `${cap(listWords(combined.slice(1).map((c) => low(c.id)), 'and'))} arrows are combined arrows too, each with its own recipe.`]);
-  if (p.hidden.length) out.push(['secret', `The ${listWords(p.hidden.map(low), 'and')} arrow keeps its recipe secret. Pick its colors in order from the menus on the right.`]);
+  if (p.hidden.length) out.push(['secret', `The ${listWords(p.hidden.map(low), 'and')} arrow${p.hidden.length > 1 ? 's keep their recipes' : ' keeps its recipe'} secret. Pick ${p.hidden.length > 1 ? 'their' : 'its'} colors in order from the menus on the right.`]);
   for (const x of insideOnly().slice(0, 1)) out.push(['inside', `${nameOf(x.id)} has no arrows of its own here. It only appears as a step inside ${listWords(x.in.map(low), 'and')}.`]);
   if (p.draw) out.push(['missing', `Some ${low(p.draw.color)} arrows are missing. Press ${low(p.draw.color)}’s ✏️ Draw pen, click the dot where an arrow starts, then the dot where it ends. Each arrow is checked right away.`]);
   if (p.road) out.push(['road', 'Build a road of arrows from 🚗 to 🏁. Click a dot, then click an empty spot to make a new dot and type its number. Any road works; the shortest is a bonus.']);
@@ -1061,12 +1061,14 @@ function renderHeader() {
   const r = cur.report;
   const mode = MODES[r.mode];
   const recipeOnly = cur.p.hidden.length && !cur.p.mystery.length;
-  $('mode').textContent = recipeOnly ? 'Find the recipe and the numbers' : mode.eyebrow;
+  const hasBlanks = cur.p.nodes.some((n) => !n.given);
+  $('mode').textContent = recipeOnly ? (hasBlanks ? 'Find the recipe and the numbers' : 'Find the recipe') : mode.eyebrow;
   $('title').textContent = cur.json.title || `Puzzle ${idx + 1}`;
   const secret = cur.p.hidden.map((id) => nameOf(id).toLowerCase());
   const help = r.mode === 'mixed' && cur.p.mystery.length === 1 ? oneMystery : mode.help;
+  const baseHelp = recipeOnly ? (hasBlanks ? MODES['find-values'].help : 'Every number and plain rule is shown.') : help;
   $('instructions').textContent = secret.length
-    ? `${recipeOnly ? MODES['find-values'].help : help} The ${secret.join(' and ')} arrow${secret.length > 1 ? 's hide their' : ' hides its'} recipe: choose which colors it uses, in order.`
+    ? `${baseHelp} The ${listWords(secret, 'and')} arrow${secret.length > 1 ? 's hide their recipes' : ' hides its recipe'}: choose which colors ${secret.length > 1 ? 'they use' : 'it uses'}, in order.`
     : help;
   const drawName = cur.p.draw && nameOf(cur.p.draw.color).toLowerCase();
   if (cur.p.draw) {
