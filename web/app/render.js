@@ -69,22 +69,24 @@ export const pretty = (s) => String(s).replace(/-/g, '−');
 //   arrowClass: {arrowId: class}, say: {x, y, text, kind: 'ok'|'bad'}|null,
 //   marks: {nodeId: emoji} (a road's start, checkpoints and finish)
 // }
+const colorVar = (h) => (h === 'soft' ? 'var(--ink-soft)' : `var(--c-${h})`);
+
 export function renderBoard(p, layout, styles, view) {
   const [vx, vy, vw, vh] = layout.viewBox;
   const hues = [...new Set([...styles.values()].map((s) => s.hue))];
   const markers = hues.map((h) => `
     <marker id="ah-${h}" viewBox="0 0 10 10" refX="${HEAD.line.refX}" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto" markerUnits="strokeWidth">
-      <path d="M0 0.6 L10 5 L0 9.4 z" class="ah" style="fill:var(--c-${h})"/>
+      <path d="M0 0.6 L10 5 L0 9.4 z" class="ah" style="fill:${colorVar(h)}"/>
     </marker>
     <marker id="ahr-${h}" viewBox="0 0 10 10" refX="${HEAD.road.refX}" refY="5" markerWidth="17" markerHeight="17" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0 0.6 L10 5 L0 9.4 z" class="ah" style="fill:var(--c-${h})${h === 'white' ? ';stroke:var(--ink-soft);stroke-width:1.2' : ''}"/>
+      <path d="M0 0.6 L10 5 L0 9.4 z" class="ah" style="fill:${colorVar(h)}${h === 'white' ? ';stroke:var(--ink-soft);stroke-width:1.2' : ''}"/>
     </marker>`).join('');
 
   const hintArrows = view.hint?.arrows || new Set();
   const arrows = layout.arrows.map((a, i) => {
     const st = styles.get(a.color);
     const hint = (hintArrows.has(a.id) ? ' is-hint' : '') + (view.arrowClass?.[a.id] ? ` ${view.arrowClass[a.id]}` : '');
-    const stroke = `stroke:var(--c-${st.hue})`;
+    const stroke = `stroke:${colorVar(st.hue)}`;
     if (st.composite) {
       // A combined arrow is drawn as a road: two rails, because it stands for
       // a whole road of arrows.

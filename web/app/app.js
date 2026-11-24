@@ -813,8 +813,9 @@ let investigating = null; // arrow id, or null
 
 function stepsOf(arrow) {
   if (!arrow.hidden) return arrow.chain;
-  const r = board.recipes[arrow.color];
-  return r && r.every(Boolean) ? r : null;
+  const len = cur.p.colorById.get(arrow.color).composite.length;
+  const r = board.recipes[arrow.color] || [];
+  return Array.from({ length: len }, (_, i) => r[i] || null);
 }
 
 function ruleLabel(colorId) {
@@ -844,11 +845,8 @@ function renderInvestigate() {
   const steps = stepsOf(arrow);
   const name = nameOf(arrow.color);
   const head = `<div class="inv-head"><h3>Investigating ${arrow.hidden || cur.p.colorById.get(arrow.color).composite ? 'the' : 'a'} ${name.toLowerCase()} arrow</h3><button class="inv-close" data-inv="close">Back to the picture</button></div>`;
-  if (!steps) {
-    box.innerHTML = `${head}<p class="inv-help">This arrow hides its recipe. Choose its colors on the right first, then you can open it up here.</p>`;
-    return;
-  }
-  const words = steps.map((s) => `<b>${nameOf(s)}</b>`).join(' then ');
+  const allChosen = steps.every(Boolean);
+  const words = steps.filter(Boolean).map((s) => `<b>${nameOf(s)}</b>`).join(' then ');
   const mids = board.scratch[arrow.id] || [];
   const from = cur.p.nodes.find((n) => n.id === arrow.from);
   const to = cur.p.nodes.find((n) => n.id === arrow.to);
@@ -861,15 +859,21 @@ function renderInvestigate() {
     nodes[`~${i}`] = { kind: text ? 'entered' : 'blank', text, label: text ? `Middle dot: ${pretty(text)}` : 'Empty middle dot' };
   });
   const mini = { nodes: ids.map((id) => ({ id, given: id === from.id ? from.given : id === to.id ? to.given : null })) };
-  const arrows = steps.map((c, i) => ({ id: `s${i}`, color: c, d: `M${i * GAP + R + 4} 0 L${(i + 1) * GAP - R - 5} 0` }));
+  const invStyles = new Map(cur.styles);
+  invStyles.set('?', { hue: 'soft', dash: '6 5', composite: false });
+  const arrows = steps.map((c, i) => ({ id: `s${i}`, color: c || '?', d: `M${i * GAP + R + 4} 0 L${(i + 1) * GAP - R - 5} 0` }));
   const w = (ids.length - 1) * GAP;
   const layout = { viewBox: [-R - 30, -78, w + 2 * R + 60, 150], pos, arrows };
   const sel = selected?.kind === 'scratch' && selected.id.startsWith(`${arrow.id}:`) ? `~${splitKey(selected.id)[1]}`
     : selected?.kind === 'node' ? selected.id : null;
   const wrong = new Set([...shown].filter((k) => k.startsWith('node:')).map((k) => k.slice(5)));
-  let svg = renderBoard(mini, layout, cur.styles, { nodes, selected: sel, wrong, hint: null, solved: false });
+  let svg = renderBoard(mini, layout, invStyles, { nodes, selected: sel, wrong, hint: null, solved: false });
   const labels = steps.map((c, i) => {
     const x = i * GAP + GAP / 2;
+    if (!c) {
+      return `<text class="inv-rule is-guess" x="${x}" y="-22" style="fill:var(--ink-soft)">?</text>
+        <text class="inv-say" x="${x}" y="30">Step ${i + 1} · pick a color</text>`;
+    }
     const hue = cur.styles.get(c).hue;
     const l = ruleLabel(c);
     const m = splitOp(pretty(l.text));
@@ -880,7 +884,12 @@ function renderInvestigate() {
   const caps = ['start', ...steps.slice(1).map(() => 'middle dot'), 'end']
     .map((t, i) => `<text class="inv-cap" x="${i * GAP}" y="${R + 30}">${t}</text>`).join('');
   svg = svg.replace('</svg>', `<g class="inv-labels">${labels}${caps}</g></svg>`);
-  const help = `${name} means ${words}. Fill in the middle dot to take it one step at a time. It’s scratch paper, so it isn’t checked.`;
+  const midWord = steps.length > 2 ? 'middle dots' : 'middle dot';
+  const help = !arrow.hidden
+    ? `${name} means ${words}. Fill in the ${midWord} to take it one step at a time. It’s scratch paper, so it isn’t checked.`
+    : allChosen
+      ? `Testing ${words} for ${name.toLowerCase()}. Fill in the ${midWord} to see if it reaches the end — it’s scratch paper, so it isn’t checked.`
+      : `${name} hides its recipe. Choose its colors on the right to try them here, and use the ${midWord} as scratch paper.`;
   box.innerHTML = `${head}
     <p class="inv-help">${help}</p>
     <div class="inv-strip">${svg}</div>`;
