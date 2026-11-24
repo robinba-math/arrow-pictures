@@ -59,7 +59,7 @@
 .board .arrow.can-investigate:hover .glow { opacity: .3; }
 /* Investigate: a brown arrow opened out over the picture */
 .investigate { position: absolute; inset: 0; z-index: 5; background: var(--board); display: flex; flex-direction: column; gap: 10px;
-  padding: 22px 24px; animation: inv-in .18s ease-out both; }
+  padding: 22px 24px; overflow-y: auto; animation: inv-in .18s ease-out both; }
 .inv-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .inv-head h3 { font: 800 26px/1.15 var(--font-display); margin: 0; letter-spacing: -0.01em; }
 .inv-head h3::before { content: "🔍 "; }
