@@ -2415,6 +2415,592 @@ export default [
     ]
   },
   {
+    "id": "mastermind-mysteries-3",
+    "title": "Mastermind Mysteries III",
+    "blurb": "Crack secret recipes for brown and gray arrows alongside mystery rules.",
+    "archive": false,
+    "puzzles": [
+      {
+        "id": "ap-301",
+        "title": "Secret sauce",
+        "source": "generated: m3-1-32",
+        "ops": {
+          "kinds": [
+            "+",
+            "-",
+            "*",
+            "/"
+          ],
+          "kMax": 12,
+          "maxDen": 12,
+          "fractions": "proper"
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "value": "10"
+          },
+          {
+            "id": "n1",
+            "value": "4"
+          },
+          {
+            "id": "n2",
+            "value": "8"
+          },
+          {
+            "id": "n3",
+            "value": "12"
+          },
+          {
+            "id": "n4",
+            "value": "30"
+          }
+        ],
+        "colors": [
+          {
+            "id": "scarlet",
+            "op": "-6"
+          },
+          {
+            "id": "yellow",
+            "op": "*3"
+          },
+          {
+            "id": "purple",
+            "op": "+4"
+          },
+          {
+            "id": "brown",
+            "composite": [
+              "scarlet",
+              "yellow"
+            ],
+            "hidden": true
+          }
+        ],
+        "arrows": [
+          {
+            "from": "n0",
+            "to": "n1",
+            "color": "scarlet"
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "color": "purple"
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "color": "yellow"
+          },
+          {
+            "from": "n0",
+            "to": "n4",
+            "color": "yellow"
+          },
+          {
+            "from": "n2",
+            "to": "n3",
+            "color": "purple"
+          },
+          {
+            "from": "n0",
+            "to": "n3",
+            "color": "brown"
+          }
+        ]
+      },
+      {
+        "id": "ap-302",
+        "title": "Missing piece",
+        "source": "generated: m3-2-81",
+        "ops": {
+          "kinds": [
+            "+",
+            "-",
+            "*",
+            "/"
+          ],
+          "kMax": 12,
+          "maxDen": 12,
+          "fractions": "proper"
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "value": "12"
+          },
+          {
+            "id": "n1",
+            "value": "8"
+          },
+          {
+            "id": "n2",
+            "value": "10"
+          },
+          {
+            "id": "n3",
+            "value": "6"
+          },
+          {
+            "id": "n4",
+            "value": "16"
+          },
+          {
+            "id": "n5",
+            "value": "5"
+          }
+        ],
+        "colors": [
+          {
+            "id": "scarlet",
+            "op": "/2"
+          },
+          {
+            "id": "yellow"
+          },
+          {
+            "id": "purple",
+            "op": "+2"
+          },
+          {
+            "id": "brown",
+            "composite": [
+              "yellow",
+              "scarlet"
+            ],
+            "hidden": true
+          }
+        ],
+        "arrows": [
+          {
+            "from": "n0",
+            "to": "n1",
+            "color": "yellow"
+          },
+          {
+            "from": "n2",
+            "to": "n0",
+            "color": "purple"
+          },
+          {
+            "from": "n0",
+            "to": "n3",
+            "color": "scarlet"
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "color": "brown"
+          },
+          {
+            "from": "n2",
+            "to": "n5",
+            "color": "scarlet"
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "color": "purple"
+          },
+          {
+            "from": "n4",
+            "to": "n0",
+            "color": "yellow"
+          }
+        ]
+      },
+      {
+        "id": "ap-303",
+        "title": "Flip the order",
+        "source": "generated: m3-3-1954",
+        "ops": {
+          "kinds": [
+            "+",
+            "-",
+            "*",
+            "/"
+          ],
+          "kMax": 12,
+          "maxDen": 12,
+          "fractions": "proper"
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "value": "8"
+          },
+          {
+            "id": "n1"
+          },
+          {
+            "id": "n2",
+            "value": "2"
+          },
+          {
+            "id": "n3"
+          },
+          {
+            "id": "n4",
+            "value": "-4"
+          },
+          {
+            "id": "n5",
+            "value": "32"
+          }
+        ],
+        "colors": [
+          {
+            "id": "scarlet"
+          },
+          {
+            "id": "yellow"
+          },
+          {
+            "id": "brown",
+            "composite": [
+              "scarlet",
+              "yellow"
+            ],
+            "hidden": true
+          },
+          {
+            "id": "gray",
+            "composite": [
+              "yellow",
+              "scarlet"
+            ],
+            "hidden": true
+          }
+        ],
+        "arrows": [
+          {
+            "from": "n0",
+            "to": "n1",
+            "color": "scarlet"
+          },
+          {
+            "from": "n2",
+            "to": "n0",
+            "color": "scarlet"
+          },
+          {
+            "from": "n0",
+            "to": "n2",
+            "color": "yellow"
+          },
+          {
+            "from": "n1",
+            "to": "n3",
+            "color": "brown"
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "color": "gray"
+          },
+          {
+            "from": "n5",
+            "to": "n1",
+            "color": "gray"
+          },
+          {
+            "from": "n4",
+            "to": "n2",
+            "color": "scarlet"
+          },
+          {
+            "from": "n5",
+            "to": "n0",
+            "color": "yellow"
+          }
+        ]
+      },
+      {
+        "id": "ap-304",
+        "title": "Two secret recipes",
+        "source": "generated: m3-4-159",
+        "ops": {
+          "kinds": [
+            "+",
+            "-",
+            "*",
+            "/"
+          ],
+          "kMax": 12,
+          "maxDen": 12,
+          "fractions": "proper"
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "value": "2"
+          },
+          {
+            "id": "n1",
+            "value": "6"
+          },
+          {
+            "id": "n2",
+            "value": "4"
+          },
+          {
+            "id": "n3"
+          },
+          {
+            "id": "n4",
+            "value": "8"
+          },
+          {
+            "id": "n5"
+          },
+          {
+            "id": "n6",
+            "value": "-6"
+          },
+          {
+            "id": "n7",
+            "value": "3"
+          }
+        ],
+        "colors": [
+          {
+            "id": "scarlet"
+          },
+          {
+            "id": "yellow"
+          },
+          {
+            "id": "purple"
+          },
+          {
+            "id": "brown",
+            "composite": [
+              "scarlet",
+              "purple"
+            ],
+            "hidden": true
+          },
+          {
+            "id": "gray",
+            "composite": [
+              "purple",
+              "yellow"
+            ],
+            "hidden": true
+          }
+        ],
+        "arrows": [
+          {
+            "from": "n1",
+            "to": "n0",
+            "color": "brown"
+          },
+          {
+            "from": "n0",
+            "to": "n1",
+            "color": "yellow"
+          },
+          {
+            "from": "n2",
+            "to": "n0",
+            "color": "purple"
+          },
+          {
+            "from": "n0",
+            "to": "n3",
+            "color": "purple"
+          },
+          {
+            "from": "n4",
+            "to": "n2",
+            "color": "purple"
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "color": "scarlet"
+          },
+          {
+            "from": "n5",
+            "to": "n0",
+            "color": "gray"
+          },
+          {
+            "from": "n6",
+            "to": "n3",
+            "color": "gray"
+          },
+          {
+            "from": "n6",
+            "to": "n5",
+            "color": "brown"
+          },
+          {
+            "from": "n2",
+            "to": "n4",
+            "color": "yellow"
+          },
+          {
+            "from": "n7",
+            "to": "n3",
+            "color": "scarlet"
+          }
+        ]
+      },
+      {
+        "id": "ap-305",
+        "title": "Triple secret",
+        "source": "generated: m3-5-649",
+        "ops": {
+          "kinds": [
+            "+",
+            "-",
+            "*",
+            "/"
+          ],
+          "kMax": 12,
+          "maxDen": 12,
+          "fractions": "proper"
+        },
+        "nodes": [
+          {
+            "id": "n0",
+            "value": "3"
+          },
+          {
+            "id": "n1",
+            "value": "-2"
+          },
+          {
+            "id": "n2"
+          },
+          {
+            "id": "n3"
+          },
+          {
+            "id": "n4"
+          },
+          {
+            "id": "n5"
+          },
+          {
+            "id": "n6",
+            "value": "-7"
+          },
+          {
+            "id": "n7",
+            "value": "-6"
+          },
+          {
+            "id": "n8",
+            "value": "-8"
+          },
+          {
+            "id": "n9"
+          }
+        ],
+        "colors": [
+          {
+            "id": "scarlet"
+          },
+          {
+            "id": "yellow"
+          },
+          {
+            "id": "purple"
+          },
+          {
+            "id": "brown",
+            "composite": [
+              "scarlet",
+              "yellow"
+            ],
+            "hidden": true
+          },
+          {
+            "id": "gray",
+            "composite": [
+              "purple",
+              "scarlet",
+              "purple"
+            ],
+            "hidden": true
+          }
+        ],
+        "arrows": [
+          {
+            "from": "n0",
+            "to": "n1",
+            "color": "yellow"
+          },
+          {
+            "from": "n2",
+            "to": "n0",
+            "color": "scarlet"
+          },
+          {
+            "from": "n3",
+            "to": "n2",
+            "color": "yellow"
+          },
+          {
+            "from": "n4",
+            "to": "n0",
+            "color": "purple"
+          },
+          {
+            "from": "n2",
+            "to": "n1",
+            "color": "brown"
+          },
+          {
+            "from": "n3",
+            "to": "n5",
+            "color": "brown"
+          },
+          {
+            "from": "n1",
+            "to": "n6",
+            "color": "yellow"
+          },
+          {
+            "from": "n0",
+            "to": "n5",
+            "color": "gray"
+          },
+          {
+            "from": "n6",
+            "to": "n7",
+            "color": "purple"
+          },
+          {
+            "from": "n8",
+            "to": "n6",
+            "color": "purple"
+          },
+          {
+            "from": "n9",
+            "to": "n8",
+            "color": "gray"
+          },
+          {
+            "from": "n4",
+            "to": "n3",
+            "color": "scarlet"
+          },
+          {
+            "from": "n2",
+            "to": "n4",
+            "color": "purple"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "below-zero",
     "title": "Below Zero",
     "blurb": "Practice with negative numbers, one move at a time.",

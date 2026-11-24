@@ -199,6 +199,29 @@ const RECIPES = {
     colors: ['scarlet', 'yellow', 'purple', 'brown', 'gray', 'white'], hide: ['scarlet', 'yellow', 'purple'], negative: true, inside: ['purple'],
     composites: [{ id: 'brown', chain: ['scarlet', 'yellow'] }, { id: 'gray', chain: ['yellow', 'purple'] }, { id: 'white', chain: ['purple', 'scarlet', 'yellow'] }],
     nodes: [7, 9], closures: [2, 4], maxDen: 1, maxAbs: 80, maxBlanks: 4, minArrows: 7 },
+  // Mastermind Mysteries III: secret recipes alongside mystery rules, from
+  // one hidden brown recipe up to brown and gray (including a 3-step recipe)
+  // below zero.
+  'm3-1': { about: 'Mastermind III 1: three known rules and a secret brown recipe',
+    colors: ['scarlet', 'yellow', 'purple', 'brown'], hide: [],
+    composites: [{ id: 'brown', chain: ['scarlet', 'yellow'], hidden: true }],
+    nodes: [4, 5], closures: [1, 2], maxDen: 1, maxAbs: 40, maxBlanks: 0, keepAll: true, minArrows: 4 },
+  'm3-2': { about: 'Mastermind III 2: one mystery rule and a secret brown recipe',
+    colors: ['scarlet', 'yellow', 'purple', 'brown'], hide: ['yellow'],
+    composites: [{ id: 'brown', chain: ['yellow', 'scarlet'], hidden: true }],
+    nodes: [5, 6], closures: [1, 2], maxDen: 1, maxAbs: 50, maxBlanks: 0, keepGivens: true, minArrows: 5 },
+  'm3-3': { about: 'Mastermind III 3: two mysteries and two secret recipes, opposite orders',
+    colors: ['scarlet', 'yellow', 'brown', 'gray'], hide: ['scarlet', 'yellow'],
+    composites: [{ id: 'brown', chain: ['scarlet', 'yellow'], hidden: true }, { id: 'gray', chain: ['yellow', 'scarlet'], hidden: true }],
+    nodes: [5, 6], closures: [1, 3], maxDen: 1, maxAbs: 60, maxBlanks: 2, minArrows: 5 },
+  'm3-4': { about: 'Mastermind III 4: three mysteries and two secret recipes (brown and gray)',
+    colors: ['scarlet', 'yellow', 'purple', 'brown', 'gray'], hide: ['scarlet', 'yellow', 'purple'],
+    composites: [{ id: 'brown', chain: ['scarlet', 'purple'], hidden: true }, { id: 'gray', chain: ['purple', 'yellow'], hidden: true }],
+    nodes: [6, 8], closures: [2, 4], maxDen: 1, maxAbs: 70, maxBlanks: 3, minArrows: 6 },
+  'm3-5': { about: 'Mastermind III 5: three mysteries, a secret brown and 3-step secret gray, below zero',
+    colors: ['scarlet', 'yellow', 'purple', 'brown', 'gray'], hide: ['scarlet', 'yellow', 'purple'], negative: true,
+    composites: [{ id: 'brown', chain: ['scarlet', 'yellow'], hidden: true }, { id: 'gray', chain: ['purple', 'scarlet', 'purple'], hidden: true }],
+    nodes: [8, 10], closures: [2, 4], maxDen: 1, maxAbs: 80, maxBlanks: 5, minArrows: 8 },
   // Code Breakers: like Mastermind, all about the rules, with a brown arrow
   // whose recipe is shown. `inside` keeps a color off the picture except as
   // a step of the brown arrow, so it can only be worked out through brown.

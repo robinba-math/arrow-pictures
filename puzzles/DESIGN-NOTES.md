@@ -35,6 +35,12 @@ writing puzzles, and add to it whenever feedback comes in.
     several combined arrows whose recipes are shown: brown alone, then
     brown and gray (the same two rules in both orders), then brown, gray
     and white. Recipes `m2-1`..`m2-5`.
+  - *Mastermind Mysteries III*: secret recipes alongside mystery rules,
+    starting with a single secret brown recipe over known rules, then a
+    mystery rule plus secret brown, then brown and gray hiding opposite
+    orders of two mystery rules, then three mysteries with two secret
+    recipes, ending with a secret brown and a three-step secret gray
+    below zero. Recipes `m3-1`..`m3-5`.
   - *Code Breakers*: Mastermind-style rule finding with a brown arrow whose
     recipe is shown. From ★★★ on, yellow never gets an arrow of its own
     (`inside` in the recipe), so it can only be worked out through brown;
