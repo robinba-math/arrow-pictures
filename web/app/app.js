@@ -21,6 +21,11 @@ const store = {
   set(key, value) {
     try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
   },
+  clearAll() {
+    try {
+      for (const k of Object.keys(localStorage)) if (k.startsWith('ap:')) localStorage.removeItem(k);
+    } catch { /* storage unavailable */ }
+  },
 };
 
 const MODES = {
@@ -1141,7 +1146,8 @@ function renderList() {
   };
   const archive = THEMES.filter((t) => t.archive);
   $('list').innerHTML = THEMES.filter((t) => !t.archive).map(section).join('')
-    + (archive.length ? `<h4 class="archive-label">Archive</h4>${archive.map(section).join('')}` : '');
+    + (archive.length ? `<h4 class="archive-label">Archive</h4>${archive.map(section).join('')}` : '')
+    + '<div class="list-foot"><button class="reset-all" id="reset-all">Reset all progress&hellip;</button></div>';
   for (const d of $('list').querySelectorAll('details.theme')) {
     d.addEventListener('toggle', () => { if (d.open) openThemes.add(d.dataset.theme); else openThemes.delete(d.dataset.theme); });
   }
@@ -1434,18 +1440,28 @@ $('which').addEventListener('click', () => {
   if (!list.hidden) { renderList(); list.querySelector('[aria-current="true"]')?.focus(); }
 });
 $('list').addEventListener('click', (e) => {
+  if (e.target.closest('#reset-all')) {
+    $('list').hidden = true;
+    $('which').setAttribute('aria-expanded', 'false');
+    $('confirm-reset').showModal();
+    return;
+  }
   const b = e.target.closest('[data-go]');
   if (!b) return;
   $('list').hidden = true;
   $('which').setAttribute('aria-expanded', 'false');
   load(Number(b.dataset.go));
 });
+$('confirm-reset').addEventListener('click', (e) => {
+  if (e.target.id === 'confirm-reset-no') $('confirm-reset').close();
+  if (e.target.id === 'confirm-reset-yes') { store.clearAll(); location.reload(); }
+});
 document.addEventListener('click', (e) => {
   if (!$('list').hidden && !e.target.closest('.nav')) { $('list').hidden = true; $('which').setAttribute('aria-expanded', 'false'); }
 });
 
 document.addEventListener('keydown', (e) => {
-  if ($('card').open) return;
+  if ($('card').open || $('confirm-reset').open) return;
   if (e.target.closest?.('input, textarea, select')) return;
   if (e.target.closest?.('button') && (e.key === 'Enter' || e.key === ' ')) return; // let buttons click
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); undo(e.shiftKey ? 1 : -1); return; }
