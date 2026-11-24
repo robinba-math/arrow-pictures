@@ -24,6 +24,19 @@ li { margin: 6px 0; }
 .example .key { display: flex; flex-wrap: wrap; gap: 6px 22px; justify-content: center; font-size: 15px; }
 .example .key b { font-weight: 700; }
 .note { background: var(--pencil-tint); border-radius: 12px; padding: 12px 16px; }
+.reset-all { margin-top: 12px; border: 1px solid var(--rule); background: var(--board); color: var(--ink-soft); border-radius: 10px;
+  min-height: 40px; padding: 8px 14px; font-weight: 700; cursor: pointer; }
+.reset-all:hover { border-color: var(--bad); color: var(--bad); background: var(--bad-tint); }
+.card { width: min(520px, calc(100vw - 32px)); padding: 24px 26px; border: 1px solid var(--rule); border-radius: 18px;
+  background: var(--board); color: var(--ink); box-shadow: 0 24px 60px rgb(15 20 30 / .35); }
+.card[open] { display: grid; gap: 14px; }
+.card::backdrop { background: rgb(15 20 30 / .4); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.card h3 { margin: 0; font: 800 26px/1.15 var(--font-display); }
+.card p { margin: 0; font-size: 16px; }
+.card .row { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: 4px; }
+.card button { border: 0; border-radius: 12px; padding: 11px 22px; font-weight: 700; font-size: 16px; cursor: pointer; }
+.card button.danger { background: var(--bad); color: var(--board); }
+.card button.cancel { background: var(--key); color: var(--ink); border: 1px solid var(--rule); }
 .foot { color: var(--ink-soft); font-size: 13px; margin-top: 24px; }
 @media (max-width: 520px) { .sheet { padding: 22px 18px 24px; } h1 { font-size: 28px; } }
 </style>
@@ -77,6 +90,16 @@ li { margin: 6px 0; }
 
     <h2>Your progress</h2>
     <p class="note">Your answers and checkmarks are saved in this browser, on this device. There&rsquo;s no account, and nothing is sent anywhere. That also means progress doesn&rsquo;t follow you to another device or browser, and it&rsquo;s lost if you clear this site&rsquo;s data or play in a private window.</p>
+    <p><button class="reset-all" id="reset-all">Reset all progress&hellip;</button></p>
+
+    <dialog class="card" id="confirm-reset" aria-labelledby="confirm-reset-title">
+      <h3 id="confirm-reset-title">Erase all progress?</h3>
+      <p>This removes every saved answer and checkmark in this browser and starts over from the first puzzle. It can&rsquo;t be undone.</p>
+      <div class="row">
+        <button id="confirm-reset-yes" class="danger">Erase &amp; restart</button>
+        <button id="confirm-reset-no" class="cancel" autofocus>Cancel</button>
+      </div>
+    </dialog>
 
     <h2>Open source</h2>
     <p>The code is open source under the MIT license, <a href="https://github.com/robinba-math/arrow-pictures">on GitHub</a>.</p>
@@ -84,4 +107,15 @@ li { margin: 6px 0; }
 
   <p class="foot"><a href="index.html">Back to the puzzles</a></p>
 </div>
+<script>
+  const dlg = document.getElementById('confirm-reset');
+  document.getElementById('reset-all').addEventListener('click', () => dlg.showModal());
+  document.getElementById('confirm-reset-no').addEventListener('click', () => dlg.close());
+  document.getElementById('confirm-reset-yes').addEventListener('click', () => {
+    try {
+      for (const k of Object.keys(localStorage)) if (k.startsWith('ap:')) localStorage.removeItem(k);
+    } catch {}
+    location.href = 'index.html';
+  });
+</script>
 
