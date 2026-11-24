@@ -1,0 +1,100 @@
+{
+  "id": "ap-302",
+  "title": "Missing piece",
+  "source": "generated: m3-2-81",
+  "ops": {
+    "kinds": [
+      "+",
+      "-",
+      "*",
+      "/"
+    ],
+    "kMax": 12,
+    "maxDen": 12,
+    "fractions": "proper"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "value": "12"
+    },
+    {
+      "id": "n1",
+      "value": "8"
+    },
+    {
+      "id": "n2",
+      "value": "10"
+    },
+    {
+      "id": "n3",
+      "value": "6"
+    },
+    {
+      "id": "n4",
+      "value": "16"
+    },
+    {
+      "id": "n5",
+      "value": "5"
+    }
+  ],
+  "colors": [
+    {
+      "id": "scarlet",
+      "op": "/2"
+    },
+    {
+      "id": "yellow"
+    },
+    {
+      "id": "purple",
+      "op": "+2"
+    },
+    {
+      "id": "brown",
+      "composite": [
+        "yellow",
+        "scarlet"
+      ],
+      "hidden": true
+    }
+  ],
+  "arrows": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "color": "yellow"
+    },
+    {
+      "from": "n2",
+      "to": "n0",
+      "color": "purple"
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "color": "scarlet"
+    },
+    {
+      "from": "n4",
+      "to": "n3",
+      "color": "brown"
+    },
+    {
+      "from": "n2",
+      "to": "n5",
+      "color": "scarlet"
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "color": "purple"
+    },
+    {
+      "from": "n4",
+      "to": "n0",
+      "color": "yellow"
+    }
+  ]
+}
